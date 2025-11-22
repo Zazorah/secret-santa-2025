@@ -5,7 +5,7 @@ extends Entity
 
 # Movement Parameters
 @export var move_speed: float = 150.0
-@export var jump_velocity: float = -300.0
+@export var jump_velocity: float = -200.0
 @export var acceleration: float = 1500.0
 @export var friction: float = 1200.0
 

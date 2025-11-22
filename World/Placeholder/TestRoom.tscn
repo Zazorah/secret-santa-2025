@@ -13,7 +13,7 @@ position = Vector2(142, 100)
 texture = ExtResource("1_p0ltf")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_c3ubo")]
-position = Vector2(29, 110)
+position = Vector2(29, 124)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

@@ -1,17 +1,81 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxa7e1h621ru5"]
+[gd_scene load_steps=13 format=3 uid="uid://cxa7e1h621ru5"]
 
 [ext_resource type="Script" uid="uid://bjsbymym0b4ot" path="res://Entities/Characters/Player/EntityPlayer.gd" id="1_mts63"]
-[ext_resource type="Texture2D" uid="uid://djipjypc63fq4" path="res://Entities/Characters/Assets/Glorp_Blue.png" id="2_aqypn"]
+[ext_resource type="Texture2D" uid="uid://xwlhn4rc5t4j" path="res://Entities/Characters/Player/Assets/Player.png" id="2_aqypn"]
 [ext_resource type="Script" uid="uid://d3uvftvuiacu4" path="res://Entities/EntityVisualizer.gd" id="2_mts63"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wspla"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yr75"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mts63"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqypn"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4q4j"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwtky"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hj56"]
+atlas = ExtResource("2_aqypn")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wspla"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_aqypn")
+"texture": SubResource("AtlasTexture_wspla")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yr75")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mts63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqypn")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4q4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwtky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hj56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwtky")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -24,8 +88,9 @@ metadata/_custom_type_script = "uid://dya32qmeca06a"
 
 [node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wspla")
-animation = &"idle"
-offset = Vector2(0, -11)
+animation = &"walk"
+frame_progress = 0.77922124
+offset = Vector2(0, -16)
 script = ExtResource("2_mts63")
 sprite = SubResource("SpriteFrames_wspla")
 metadata/_custom_type_script = "uid://d3uvftvuiacu4"

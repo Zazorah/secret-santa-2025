@@ -8,8 +8,9 @@ extends CharacterBody2D
 @onready var visualizer: EntityVisualizer = $EntityVisualizer
 
 # Movement/Physics
-@export var gravity: float = 560.0
+@export var gravity: float = 460.0
 @export var max_fall_speed: float = 1000.0
+var was_on_floor = false # Tracking to tell if we just landed on this frame.
 
 func _ready() -> void:
 	# Link self with Visualizer
@@ -29,10 +30,19 @@ func _physics_process(delta: float) -> void:
 	
 	# Update visualizer with current state
 	update_visualizer()
+	
+	was_on_floor = is_on_floor()
 
 func update_velocity(delta: float):
 	pass
 
+func get_entity_context() -> Dictionary:
+	return {
+		"velocity": velocity,
+		"is_on_floor": is_on_floor(),
+		"was_on_floor": was_on_floor
+	}
+
 func update_visualizer():
 	if visualizer:
-		visualizer.update_animation(velocity, is_on_floor())
+		visualizer.update_animation(get_entity_context())
