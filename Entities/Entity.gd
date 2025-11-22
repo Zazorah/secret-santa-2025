@@ -8,7 +8,7 @@ extends CharacterBody2D
 @onready var visualizer: EntityVisualizer = $EntityVisualizer
 
 # Movement/Physics
-@export var gravity: float = 980.0
+@export var gravity: float = 560.0
 @export var max_fall_speed: float = 1000.0
 
 func _ready() -> void:

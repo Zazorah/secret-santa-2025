@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxa7e1h621ru5"]
 
-[ext_resource type="Script" uid="uid://dya32qmeca06a" path="res://Entities/Entity.gd" id="1_28pfj"]
+[ext_resource type="Script" uid="uid://bjsbymym0b4ot" path="res://Entities/Characters/Player/EntityPlayer.gd" id="1_mts63"]
 [ext_resource type="Texture2D" uid="uid://djipjypc63fq4" path="res://Entities/Characters/Assets/Glorp_Blue.png" id="2_aqypn"]
 [ext_resource type="Script" uid="uid://d3uvftvuiacu4" path="res://Entities/EntityVisualizer.gd" id="2_mts63"]
 
@@ -19,7 +19,7 @@ animations = [{
 size = Vector2(6, 17)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
-script = ExtResource("1_28pfj")
+script = ExtResource("1_mts63")
 metadata/_custom_type_script = "uid://dya32qmeca06a"
 
 [node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]

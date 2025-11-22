@@ -8,13 +8,20 @@ size = Vector2(286.5, 20)
 [node name="TestRoom" type="Node2D"]
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_c3ubo")]
-position = Vector2(29, 33)
+position = Vector2(29, 110)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, -20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(144, 154)
 shape = SubResource("RectangleShape2D_c3ubo")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = 1.0
+offset_top = 144.0
+offset_right = 287.0
+offset_bottom = 164.0
