@@ -15,8 +15,15 @@ var current_state: State = State.IDLE
 
 # Wandering
 @export var will_wander: bool = true
+@export var wander_radius: float = 100.0
+@export var wander_speed: float = 50.0
+@export var wander_idle_time_min: float = 2.0
+@export var wander_idle_time_max: float = 5.0
+
 var wander_timer: float
 var wander_target: Vector2
+var spawn_position: Vector2
+var wander_tolerancce: float = 5.0
 
 # Interaction Zone
 var interaction_zone: InteractionZone 
@@ -28,12 +35,25 @@ func _ready():
 	if cutscene_key:
 		pass
 	
-	pass
+	wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 
 func _process(delta: float) -> void:
 	# Update based on state.
 	match current_state:
-		pass
+		State.IDLE:
+			_process_idle(delta)
+		State.WANDERING:
+			_process_wandering(delta)
+
+func update_velocity(delta: float):
+	if current_state == State.WANDERING:
+		var direction = sign(wander_target.x - global_position.x)
+		if direction != 0:
+			velocity.x = direction * wander_speed
+		else:
+			velocity.x = 0
+	else:
+		velocity.x = move_toward(velocity.x, 0, 200.0 * delta)
 
 # State Management Methods
 func change_state(new_state: State) -> void:
@@ -43,10 +63,77 @@ func change_state(new_state: State) -> void:
 	current_state = new_state
 
 func _on_state_enter(state: State) -> void:
-	pass
+	match state:
+		State.IDLE:
+			velocity.x = 0
+			wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
+		State.WANDERING:
+			wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
+		_:
+			pass
 
 func _on_state_exit(state: State) -> void:
-	pass
+	match state:
+		State.WANDERING:
+			velocity.x = 0
+		_:
+			pass
+
+func _process_idle(delta: float) -> void:
+	if not will_wander:
+		return
+	
+	wander_timer -= delta
+	if wander_timer <= 0:
+		# Try to find a wander target
+		if _find_valid_wander_target():
+			change_state(State.WANDERING)
+		else:
+			wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
+
+func _process_wandering(_delta: float) -> void:
+	if abs(global_position.x - wander_target.x) <= wander_tolerancce:
+		change_state(State.IDLE)
+		return
+
+# Path-finding methods for Wandering state
+func _find_valid_wander_target() -> bool:
+	const MAX_ATTEMPTS = 10
+	
+	for attempt in MAX_ATTEMPTS:
+		var random_offset = randf_range(-wander_radius, wander_radius)
+		var potential_target = spawn_position + Vector2(random_offset, 0)
+		
+		if _is_valid_wander_position(potential_target):
+			wander_target = potential_target
+			return true
+	
+	return false
+
+func _is_valid_wander_position(target_pos: Vector2) -> bool:
+	if abs(target_pos.x - global_position.x) < wander_tolerancce * 2:
+		return false
+	
+	var direction = sign(target_pos.x - global_position.x)
+	var distance = abs(target_pos.x - global_position.x)
+	
+	if not _is_path_clear(direction, distance):
+		return false
+	
+	return true
+
+func _is_path_clear(direction: int, distance: float) -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var start_pos = global_position
+	var end_pos = global_position + Vector2(direction * distance, 0)
+	
+	var query = PhysicsRayQueryParameters2D.create(start_pos, end_pos)
+	query.collision_mask = 1 # Only check world layer
+	query.exclude = [self]
+	
+	var result = space_state.intersect_ray(query)
+	
+	return result.is_empty()
 
 # Interaction Management Methods
 func _setup_interaction_zone() -> void:

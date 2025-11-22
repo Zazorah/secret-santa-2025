@@ -48,7 +48,7 @@ metadata/_custom_type_script = "uid://2wltjwcplwhv"
 [node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6knan")
 animation = &"idle"
-offset = Vector2(0, -16)
+offset = Vector2(0, -15)
 script = ExtResource("2_yfb0c")
 metadata/_custom_type_script = "uid://d3uvftvuiacu4"
 
