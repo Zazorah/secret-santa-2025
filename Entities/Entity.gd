@@ -10,7 +10,7 @@ extends CharacterBody2D
 # Movement/Physics
 @export var gravity: float = 460.0
 @export var max_fall_speed: float = 1000.0
-var was_on_floor = false # Tracking to tell if we just landed on this frame.
+var was_on_floor = true # Tracking to tell if we just landed on this frame.
 
 func _ready() -> void:
 	# Link self with Visualizer
