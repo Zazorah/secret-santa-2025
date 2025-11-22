@@ -32,6 +32,10 @@ func play_animation(key: StringName):
 	if sprite_frames.has_animation(key):
 		play(key)
 
+func face_direction(target_position: Vector2):
+	var parent_pos = get_parent().global_position
+	flip_h = parent_pos < target_position
+
 # Effect Methods
 func squish(strength = 1.0):
 	scale.x = 0.6 / strength

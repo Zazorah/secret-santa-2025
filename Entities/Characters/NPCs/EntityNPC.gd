@@ -10,8 +10,8 @@ extends Entity
 @export var cutscene_key: StringName
 
 # State
-enum State { IDLE, WANDERING, TALKING, WATCHING }
-var current_state: State = State.IDLE 
+enum State {IDLE, WANDERING, TALKING, WATCHING}
+var current_state: State = State.IDLE
 
 # Wandering
 @export var will_wander: bool = true
@@ -23,10 +23,13 @@ var current_state: State = State.IDLE
 var wander_timer: float
 var wander_target: Vector2
 var spawn_position: Vector2
-var wander_tolerancce: float = 5.0
+var wander_tolerance: float = 5.0
+
+# Watching
+@export var watching_tolerance: float = 32.0
 
 # Interaction Zone
-var interaction_zone: InteractionZone 
+var interaction_zone: InteractionZone
 
 func _ready():
 	super._ready()
@@ -38,12 +41,20 @@ func _ready():
 	wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 
 func _process(delta: float) -> void:
+	# Interrupt state and begin watching if near player.
+	if not current_state == State.TALKING and not current_state == State.WATCHING:
+		if _is_near_player():
+			print("Hello, Player!")
+			change_state(State.WATCHING)
+
 	# Update based on state.
 	match current_state:
 		State.IDLE:
 			_process_idle(delta)
 		State.WANDERING:
 			_process_wandering(delta)
+		State.WATCHING:
+			_process_watching(delta)
 
 func update_velocity(delta: float):
 	if current_state == State.WANDERING:
@@ -69,6 +80,8 @@ func _on_state_enter(state: State) -> void:
 			wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 		State.WANDERING:
 			wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
+		State.WATCHING:
+			velocity.x = 0
 		_:
 			pass
 
@@ -92,9 +105,16 @@ func _process_idle(delta: float) -> void:
 			wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 
 func _process_wandering(_delta: float) -> void:
-	if abs(global_position.x - wander_target.x) <= wander_tolerancce:
+	if abs(global_position.x - wander_target.x) <= wander_tolerance:
 		change_state(State.IDLE)
 		return
+
+func _process_watching(_delta: float) -> void:
+	if visualizer:
+		visualizer.face_direction(GameManager.player.global_position)
+	
+	if not _is_near_player():
+		change_state(State.IDLE)
 
 # Path-finding methods for Wandering state
 func _find_valid_wander_target() -> bool:
@@ -111,7 +131,7 @@ func _find_valid_wander_target() -> bool:
 	return false
 
 func _is_valid_wander_position(target_pos: Vector2) -> bool:
-	if abs(target_pos.x - global_position.x) < wander_tolerancce * 2:
+	if abs(target_pos.x - global_position.x) < wander_tolerance * 2:
 		return false
 	
 	var direction = sign(target_pos.x - global_position.x)
@@ -138,3 +158,11 @@ func _is_path_clear(direction: int, distance: float) -> bool:
 # Interaction Management Methods
 func _setup_interaction_zone() -> void:
 	pass
+
+# Utility Methods
+func _is_near_player() -> bool:
+	if GameManager.player:
+		if abs(global_position.x - GameManager.player.global_position.x) <= watching_tolerance:
+			return true
+	
+	return false

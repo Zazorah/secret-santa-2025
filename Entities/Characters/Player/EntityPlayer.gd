@@ -10,7 +10,7 @@ extends Entity
 @export var friction: float = 1200.0
 
 # States
-enum State { IDLE, WALKING, JUMPING, FALLING }
+enum State {IDLE, WALKING, JUMPING, FALLING}
 var current_state: State = State.IDLE
 
 func _ready() -> void:
@@ -19,6 +19,8 @@ func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	if GameManager.camera:
 		GameManager.camera.focus_target = self
+	
+	GameManager.player = self
 
 func update_velocity(delta: float):
 	# Get horizontal input
