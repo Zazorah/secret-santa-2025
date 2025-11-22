@@ -14,6 +14,8 @@ enum State { IDLE, WALKING, JUMPING, FALLING }
 var current_state: State = State.IDLE
 
 func _ready() -> void:
+	super._ready()
+	
 	await get_tree().create_timer(0.1).timeout
 	if GameManager.camera:
 		GameManager.camera.focus_target = self

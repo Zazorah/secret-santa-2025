@@ -25,13 +25,13 @@ tile_map_data = PackedByteArray("AAAAAAgAAAABAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAA
 tile_set = ExtResource("3_8h5r4")
 
 [node name="NPCAxolotl" parent="." instance=ExtResource("5_dv4i4")]
-position = Vector2(84, 97)
+position = Vector2(84, 127)
 
 [node name="NPCFrog" parent="." instance=ExtResource("6_vhexg")]
-position = Vector2(-102, 54)
+position = Vector2(-102, 80)
 
 [node name="NPCFork" parent="." instance=ExtResource("7_fi5io")]
-position = Vector2(508, 106)
+position = Vector2(508, 128)
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_c3ubo")]
 position = Vector2(30, 129)

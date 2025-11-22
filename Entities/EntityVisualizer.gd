@@ -17,15 +17,20 @@ func update_animation(entity_context: Dictionary) -> void:
 	
 	# Choose animation based on state
 	if not grounded:
-		play("jump")
+		play_animation("jump")
 	elif abs(velocity.x) > 10:
-		play("walk")
+		play_animation("walk")
 	else:
-		play("idle")
+		play_animation("idle")
 	
 	# Play squash effect if just landed
 	if !was_grounded and grounded:
 		squash()
+
+# Animation Methods
+func play_animation(key: StringName):
+	if sprite_frames.has_animation(key):
+		play(key)
 
 # Effect Methods
 func squish(strength = 1.0):
