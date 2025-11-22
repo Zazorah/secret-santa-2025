@@ -6,9 +6,6 @@ extends AnimatedSprite2D
 # Linked Nodes
 var entity: Entity
 
-# Animation
-@export var sprite: SpriteFrames
-
 func update_animation(entity_context: Dictionary) -> void:
 	var velocity = entity_context.get("velocity", 0.0)
 	var grounded = entity_context.get("is_on_floor", true)

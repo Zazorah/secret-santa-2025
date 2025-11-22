@@ -91,7 +91,6 @@ sprite_frames = SubResource("SpriteFrames_wspla")
 animation = &"idle"
 offset = Vector2(0, -16)
 script = ExtResource("2_mts63")
-sprite = SubResource("SpriteFrames_wspla")
 metadata/_custom_type_script = "uid://d3uvftvuiacu4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

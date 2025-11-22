@@ -35,6 +35,9 @@ func update_velocity(delta: float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		current_state = State.JUMPING
+		
+		if visualizer:
+			visualizer.squish(0.5)
 	
 	if not is_on_floor():
 		current_state = State.FALLING if velocity.y > 0 else State.JUMPING
