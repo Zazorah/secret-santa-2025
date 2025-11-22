@@ -13,6 +13,11 @@ extends Entity
 enum State { IDLE, WALKING, JUMPING, FALLING }
 var current_state: State = State.IDLE
 
+func _ready() -> void:
+	await get_tree().create_timer(0.1).timeout
+	if GameManager.camera:
+		GameManager.camera.focus_target = self
+
 func update_velocity(delta: float):
 	# Get horizontal input
 	var input_dir = Input.get_axis("move_left", "move_right")
