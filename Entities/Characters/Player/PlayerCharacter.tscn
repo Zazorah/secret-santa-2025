@@ -88,8 +88,7 @@ metadata/_custom_type_script = "uid://dya32qmeca06a"
 
 [node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_wspla")
-animation = &"walk"
-frame_progress = 0.77922124
+animation = &"idle"
 offset = Vector2(0, -16)
 script = ExtResource("2_mts63")
 sprite = SubResource("SpriteFrames_wspla")

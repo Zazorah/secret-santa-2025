@@ -33,7 +33,7 @@ func update_animation(entity_context: Dictionary) -> void:
 # Effect Methods
 func squish(strength = 1.0):
 	scale.x = 0.6 / strength
-	scale.y = 1.5 * strength
+	scale.y = 1.8 * strength
 	
 	_normalize_scale()
 
