@@ -31,7 +31,7 @@ func load_dialog() -> void:
 				var json_data = _load_json_data(full_path)
 				
 				if json_data != null:
-					_process_json_data(json_data, file_name)
+					_process_json_data(json_data)
 		
 		file_name = dir.get_next()
 	
@@ -59,10 +59,7 @@ func _load_json_data(file_path: String) -> Variant:
 	
 	return json.data
 
-func _process_json_data(data: Variant, file_name: String) -> void:
-	print("Processing file: ", file_name)
-	#print("Data: ", data)
-	
+func _process_json_data(data: Variant) -> void:
 	# Process each field as a DialogScene
 	for key in data:
 		var scene = DialogScene.new(key)
