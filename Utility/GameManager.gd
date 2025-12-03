@@ -4,3 +4,6 @@ extends Node
 
 # Camera
 var camera: Camera 
+
+func _ready() -> void:
+	DialogManager.play_dialog("frog_test")

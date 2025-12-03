@@ -1,0 +1,10 @@
+{
+	"secret_dialog": [
+		{
+			"text": "This is a secret message..."
+		},
+		{
+			"text": "How are you reading this..."
+		}
+	]
+}
