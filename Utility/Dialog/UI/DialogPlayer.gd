@@ -58,5 +58,8 @@ func _input(event: InputEvent) -> void:
 				_show_next_line()
 
 func _end_dialog() -> void:
+	if textbox:
+		await textbox.kill()
+	
 	finished.emit()
 	queue_free()

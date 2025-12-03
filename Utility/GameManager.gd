@@ -6,4 +6,4 @@ extends Node
 var camera: Camera 
 
 func _ready() -> void:
-	var player = DialogManager.play_dialog("axolotl_test")
+	DialogManager.play_dialog("axolotl_test")
