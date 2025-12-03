@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce8e35br1k06"]
+
+[ext_resource type="Script" uid="uid://bjv2bprtv6gmt" path="res://Utility/Dialog/UI/DialogTextbox.gd" id="1_7scxk"]
+
+[node name="DialogTextbox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7scxk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_right = 128.0
+offset_bottom = 52.0
+grow_horizontal = 2
+
+[node name="SpacerTop" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="OuterContainer" type="PanelContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(256, 48)
+layout_mode = 2
+
+[node name="BackingColor" type="ColorRect" parent="VBoxContainer/OuterContainer"]
+layout_mode = 2
+color = Color(0.0947118, 0.03211941, 0.10604989, 1)
+
+[node name="InnerContainer" type="PanelContainer" parent="VBoxContainer/OuterContainer"]
+custom_minimum_size = Vector2(248, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="InnerColor" type="ColorRect" parent="VBoxContainer/OuterContainer/InnerContainer"]
+layout_mode = 2
+
+[node name="TextContainer" type="PanelContainer" parent="VBoxContainer/OuterContainer/InnerContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(240, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/OuterContainer/InnerContainer/TextContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/default_color = Color(0.09411765, 0.03137255, 0.105882354, 1)
+text = "Hello, World!"

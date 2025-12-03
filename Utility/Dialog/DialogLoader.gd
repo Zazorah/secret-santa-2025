@@ -104,4 +104,5 @@ func get_dialog(key: StringName) -> DialogScene:
 	if not dialog_data.has(key):
 		return
 	
-	return dialog_data.get(key)
+	var dialog_scene = dialog_data.get(key)
+	return dialog_scene

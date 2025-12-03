@@ -9,8 +9,9 @@ var lines: Array[DialogLine]
 func _init(new_tag: StringName) -> void:
 	tag = new_tag
 
-# Returns the next line in sequence, or 
-func get_next_line():
-	if lines.size() > 0:
-		var top = lines.pop_front()
-		return top
+# Returns the line at a given index, or null. 
+func get_line(index: int):
+	if lines.size() > index:
+		return lines[index]
+	
+	return null
