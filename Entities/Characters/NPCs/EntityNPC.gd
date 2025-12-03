@@ -29,14 +29,18 @@ var wander_tolerance: float = 5.0
 @export var watching_tolerance: float = 32.0
 
 # Interaction Zone
-var interaction_zone: InteractionZone
+@onready var interaction_zone: InteractionZone = $InteractionZone
 
 func _ready():
 	super._ready()
 	
-	# Set self up as something interactable if cutscene data exists.
-	if cutscene_key:
-		pass
+	# Set up interactions.
+	if cutscene_key and interaction_zone:
+		interaction_zone.entered.connect(_on_interaction_zone_enter)
+		interaction_zone.exited.connect(_on_interaction_zone_exit)
+		interaction_zone.interacted.connect(_on_interact)
+		
+		print("Interaction Zone set up!")
 	
 	wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 
@@ -44,11 +48,10 @@ func _process(delta: float) -> void:
 	# Interrupt state and begin watching if near player.
 	if not current_state == State.TALKING and not current_state == State.WATCHING:
 		if _is_near_player():
-			print("Hello, Player!")
 			change_state(State.WATCHING)
 
 	# Update based on state.
-	match current_state:
+	match current_state: 
 		State.IDLE:
 			_process_idle(delta)
 		State.WANDERING:
@@ -158,6 +161,15 @@ func _is_path_clear(direction: int, distance: float) -> bool:
 # Interaction Management Methods
 func _setup_interaction_zone() -> void:
 	pass
+
+func _on_interaction_zone_enter(node: Node2D) -> void:
+	print("Zone Entered by Player:", node)
+
+func _on_interaction_zone_exit(node: Node2D) -> void:
+	print("Zone Exited by Player:", node)
+
+func _on_interact(node: Node2D) -> void:
+	print("Interacted with by Player:", node)
 
 # Utility Methods
 func _is_near_player() -> bool:
