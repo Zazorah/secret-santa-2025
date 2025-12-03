@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://ccrcnjq5b8cwl"]
+
+[ext_resource type="FontFile" uid="uid://dmjpy7lud1m80" path="res://Assets/Fonts/ChevyRay - Crates.ttf" id="1_540st"]
+
+[resource]
+base_font = ExtResource("1_540st")
