@@ -1,0 +1,44 @@
+{
+	"secret_dialog": [
+		{
+			"text": "This is a secret message..."
+		},
+		{
+			"text": "How are you reading this..."
+		}
+	],
+	
+	"choice_test": [
+		{
+			"text": "It's time to make a choice...",
+			"choices": [
+				{
+					"text": "Yes",
+					"tag": "choice_test_yes"
+				},
+				{
+					"text": "No"
+				},
+				{
+					"text": "What?",
+					"tag": "choice_test_what"
+				}
+			]
+		},
+		{
+			"text": "Why... Why are you so afraid..."
+		}
+	],
+	
+	"choice_test_yes": [
+		{
+			"text": "I'm glad to hear that..."
+		}
+	],
+	
+	"choice_test_what": [
+		{
+			"text": "Huh?"
+		}
+	]
+}

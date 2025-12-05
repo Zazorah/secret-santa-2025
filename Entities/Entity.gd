@@ -29,8 +29,21 @@ func _physics_process(delta: float) -> void:
 	# Let subclasses modify velocity
 	update_velocity(delta)
 	
+	var pre_move_velocity = velocity
+	
 	# Handle movement
 	move_and_slide()
+	
+	# Push rigidbodies
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is RigidBody2D:
+			var push_direction = collision.get_normal() * -1
+			var push_force = push_direction * pre_move_velocity.length() * 0.5
+			
+			collider.apply_central_impulse(push_force)
 	
 	# Update visualizer with current state
 	update_visualizer()

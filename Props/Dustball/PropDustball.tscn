@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxti3vloxw2ey"]
+
+[ext_resource type="Texture2D" uid="uid://cabucfxwtlt8a" path="res://Props/Dustball/Assets/Dustball.png" id="1_uky1p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uky1p"]
+radius = 7.0
+
+[node name="Dustball" type="RigidBody2D"]
+collision_layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uky1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uky1p")

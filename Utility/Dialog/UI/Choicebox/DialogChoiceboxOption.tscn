@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfgnnlkti1rww"]
+
+[ext_resource type="Theme" uid="uid://s4w2liv7d0lg" path="res://Utility/Dialog/Assets/Themes/TextboxTheme.tres" id="1_owi5h"]
+
+[node name="Label" type="RichTextLabel"]
+custom_minimum_size = Vector2(64, 8)
+theme = ExtResource("1_owi5h")
+text = " Hello, World!"
+scroll_active = false
+vertical_alignment = 1
