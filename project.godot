@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://Utility/GameManager.gd"
-DialogManager="res://Utility/Dialog/DialogManager.gd"
+DialogManager="*res://Utility/Dialog/DialogManager.gd"
 
 [display]
 

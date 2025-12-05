@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://hkomvmr386t3"]
+
+[ext_resource type="Script" uid="uid://dk8iflp4ckq3" path="res://Utility/Dialog/UI/Choicebox/DialogChoicebox.gd" id="1_6881l"]
+[ext_resource type="PackedScene" uid="uid://dfgnnlkti1rww" path="res://Utility/Dialog/UI/Choicebox/DialogChoiceboxOption.tscn" id="2_hokdp"]
+[ext_resource type="Theme" uid="uid://s4w2liv7d0lg" path="res://Utility/Dialog/Assets/Themes/TextboxTheme.tres" id="3_lbfqy"]
+
+[node name="DialogChoicebox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6881l")
+
+[node name="Cursor" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 188.0
+offset_top = 57.0
+offset_right = 188.0
+offset_bottom = 57.0
+
+[node name="Label" type="RichTextLabel" parent="Cursor"]
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 20.0
+theme = ExtResource("3_lbfqy")
+theme_override_font_sizes/normal_font_size = 24
+text = ">"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OptionBox" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OuterContainer" type="PanelContainer" parent="OptionBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 162.0
+offset_top = 36.0
+offset_right = 232.0
+offset_bottom = 76.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="OptionBox/OuterContainer"]
+layout_mode = 2
+color = Color(0.09411765, 0.03137255, 0.105882354, 1)
+
+[node name="InnerContainer" type="PanelContainer" parent="OptionBox/OuterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 34)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="OptionBox/OuterContainer/InnerContainer"]
+layout_mode = 2
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="OptionBox/OuterContainer/InnerContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="Option" parent="OptionBox/OuterContainer/InnerContainer/ChoiceContainer" instance=ExtResource("2_hokdp")]
+layout_mode = 2
+text = "  Choice #1"
+
+[node name="Option2" parent="OptionBox/OuterContainer/InnerContainer/ChoiceContainer" instance=ExtResource("2_hokdp")]
+layout_mode = 2
+text = "  Choice #2"
