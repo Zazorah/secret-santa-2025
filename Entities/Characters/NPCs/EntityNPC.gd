@@ -118,7 +118,7 @@ func _process_wandering(_delta: float) -> void:
 		return
 
 func _process_watching(_delta: float) -> void:
-	if visualizer:
+	if visualizer and GameManager.player:
 		visualizer.face_direction(GameManager.player.global_position)
 	
 	if not _is_near_player():

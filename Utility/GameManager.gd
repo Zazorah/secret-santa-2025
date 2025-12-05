@@ -8,7 +8,8 @@ var player: EntityPlayer
 # Camera
 var camera: Camera
 
-# Star Data
+# Data
+var ship_data: ShipData
 var star_data: StarData
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 # Set up global state to act as a new save. 
 func create_new_game() -> void:
+	ship_data = ShipData.new()
 	star_data = StarData.new()
 
 # Save the game state to a loadable file.
