@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce8e35br1k06"]
 
-[ext_resource type="Script" uid="uid://bjv2bprtv6gmt" path="res://Utility/Dialog/UI/DialogTextbox.gd" id="1_7scxk"]
+[ext_resource type="Script" uid="uid://bjv2bprtv6gmt" path="res://Utility/Dialog/UI/Textbox/DialogTextbox.gd" id="1_7scxk"]
 [ext_resource type="Theme" uid="uid://s4w2liv7d0lg" path="res://Utility/Dialog/Assets/Themes/TextboxTheme.tres" id="2_2yew5"]
 
 [node name="DialogTextbox" type="Control"]

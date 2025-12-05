@@ -87,7 +87,9 @@ func _process_choices(choices: Variant) -> Array[DialogChoice]:
 	for choice_data in choices:
 		var choice = DialogChoice.new()
 		choice.text = choice_data.text
-		choice.tag = choice_data.tag
+		
+		if choice_data.has("tag"):
+			choice.tag = choice_data.tag
 		
 		result.push_back(choice)
 	

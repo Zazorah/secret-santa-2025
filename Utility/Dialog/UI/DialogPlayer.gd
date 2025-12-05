@@ -5,7 +5,8 @@ extends CanvasLayer
 ## Instantiated with a key pointing to a dialog scene.
 
 # Scene References
-const TEXTBOX_SCENE = preload("res://Utility/Dialog/UI/DialogTextbox.tscn")
+const TEXTBOX_SCENE = preload("res://Utility/Dialog/UI/Textbox/DialogTextbox.tscn")
+const CHOICEBOX_SCENE = preload("res://Utility/Dialog/UI/Choicebox/DialogChoicebox.tscn")
 
 # Emitted when the dialog scene is finished.
 signal finished
@@ -42,9 +43,17 @@ func _show_next_line() -> void:
 	
 	textbox.set_line(current_line)
 
-func _show_choices() -> void:
-	push_warning("Choicebox has not been implemented yet.. Sorry...")
-	_show_next_line()
+func _show_choices(choices: Array[DialogChoice]) -> void:
+	# Create Choicebox
+	choicebox = CHOICEBOX_SCENE.instantiate() as DialogChoicebox
+	add_child(choicebox)
+	
+	# Pass in choices
+	choicebox.set_choices(choices)
+	
+	pass
+
+func _hide_choices() -> void:
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -53,7 +62,7 @@ func _input(event: InputEvent) -> void:
 		if not textbox.is_writing and event.is_action_pressed("advance_text"):
 			# Show choices if they exist.
 			if current_line.choices:
-				_show_choices()
+				_show_choices(current_line.choices)
 			else:
 				_show_next_line()
 

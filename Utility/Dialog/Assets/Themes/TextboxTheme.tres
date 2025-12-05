@@ -3,5 +3,6 @@
 [ext_resource type="FontFile" uid="uid://bfuplq32dveng" path="res://Assets/Fonts/ChevyRay - Picory.ttf" id="1_xwoec"]
 
 [resource]
+RichTextLabel/colors/default_color = Color(0.09411765, 0.03137255, 0.105882354, 1)
 RichTextLabel/font_sizes/normal_font_size = 12
 RichTextLabel/fonts/normal_font = ExtResource("1_xwoec")
