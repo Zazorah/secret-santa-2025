@@ -1,0 +1,51 @@
+{
+  "axolotl_test": [
+	{
+	  "name": "Axolotl",
+	  "text": "Hello, there!"
+	},
+	{
+	  "name": "Axolotl",
+	  "text": "This is a message, and my name is Axolotl!"
+	}
+  ],
+
+  "fork_test": [
+	{
+	  "text": "I'm Fork! Yep! That's my name!"
+	},
+	{
+	  "text": "I'm a fork that was brought to life through someone wishing on a star."
+	},
+	{
+	  "text": "Frankly, I hate it!"
+	}
+  ],
+
+  "frog_test": [
+	{
+	  "text": "Nice to meet ya! I'm Frog!"
+	},
+	{
+	  "text": "Those yuppies on Earth stuffed me on a rocket ship and didn't even care when I never came back."
+	},
+	{
+	  "text": "It's whatever though. I'm chill with it. Moon energy let me evolve so I can run and play now."
+	},
+	{
+	  "text": "I do miss the games though... Do you know if they still have Pacman?",
+	}
+  ],
+
+  "frog_test_yes": [
+	{
+	  "text": "Oh thank goodness! That's great to hear!"
+	}
+  ],
+
+  "frog_test_no": [
+	{
+	  "text": "You're kidding.. I.. I'm never going back!!"
+	}
+  ]
+}

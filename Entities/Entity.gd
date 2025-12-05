@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 	
 	was_on_floor = is_on_floor()
 
-func update_velocity(delta: float):
+func update_velocity(_delta: float):
 	pass
 
 func get_entity_context() -> Dictionary:

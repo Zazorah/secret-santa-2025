@@ -10,15 +10,27 @@ extends Entity
 @export var friction: float = 1200.0
 
 # States
-enum State { IDLE, WALKING, JUMPING, FALLING }
+enum State {IDLE, WALKING, JUMPING, FALLING, TALKING}
 var current_state: State = State.IDLE
 
 func _ready() -> void:
+	super._ready()
+	
 	await get_tree().create_timer(0.1).timeout
 	if GameManager.camera:
 		GameManager.camera.focus_target = self
+	
+	GameManager.player = self
+	
+	# Set Collision Properties
+	collision_layer = 8
+	collision_mask = 1
 
 func update_velocity(delta: float):
+	# Don't respond to any inputs when talking.
+	if current_state == State.TALKING:
+		return
+	
 	# Get horizontal input
 	var input_dir = Input.get_axis("move_left", "move_right")
 	
@@ -35,6 +47,9 @@ func update_velocity(delta: float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		current_state = State.JUMPING
+		
+		if visualizer:
+			visualizer.squish(0.5)
 	
 	if not is_on_floor():
 		current_state = State.FALLING if velocity.y > 0 else State.JUMPING
