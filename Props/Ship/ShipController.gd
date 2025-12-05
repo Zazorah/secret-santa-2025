@@ -7,26 +7,11 @@ var current_state: ShipState
 var states := {}
 
 # Node References
-@onready var sprite: Sprite2D = $Body/Sprite2D
+@onready var visualizer: ShipVisualizer = $Visualizer
 @onready var interaction_zone: InteractionZone = $InteractionZone
 
 # Stats
 var health = 1
-
-# Constant Properties
-const SL_SPRITE_LOOKUP := {
-	1: preload("res://Props/Ship/Assets/Ship_S1.png"),
-	2: preload("res://Props/Ship/Assets/Ship_S2.png"),
-	3: preload("res://Props/Ship/Assets/Ship_S3.png"),
-	4: preload("res://Props/Ship/Assets/Ship_S4.png")
-}
-
-const SL_SPRITE_PILOT_LOOKUP := {
-	1: preload("res://Props/Ship/Assets/Ship_S1_Piloted.png"),
-	2: preload("res://Props/Ship/Assets/Ship_S2_Piloted.png"),
-	3: preload("res://Props/Ship/Assets/Ship_S3_Piloted.png"),
-	4: preload("res://Props/Ship/Assets/Ship_S4_Piloted.png")
-}
 
 func _ready() -> void:
 	# Set collision properties.
@@ -35,13 +20,16 @@ func _ready() -> void:
 	# Setup interactions
 	interaction_zone.interacted.connect(_enter_ship)
 	
+	# Setup visualizer
+	visualizer.ship = self
+	
 	# Initialize state machine
 	_setup_states()
 	
 	# Connect collision signal
 	body_entered.connect(_on_body_entered)
 	
-	update_visual_state()
+	visualizer.update.call_deferred()
 
 func _setup_states() -> void:
 	# Create state instances
@@ -106,14 +94,6 @@ func _on_body_entered(body: Node) -> void:
 			
 			change_state("collided")
 
-# Update sprite based on current health level.
-func update_visual_state() -> void:
-	if GameManager.star_data:
-		if piloted:
-			sprite.texture = SL_SPRITE_PILOT_LOOKUP[health]
-		else:
-			sprite.texture = SL_SPRITE_LOOKUP[health]
-
 func _enter_ship(_player: Node2D) -> void:
 	if piloted or not GameManager.ship_data.can_enter:
 		return
@@ -131,7 +111,7 @@ func _enter_ship(_player: Node2D) -> void:
 		GameManager.camera.focus_target = self
 		GameManager.camera.zoom_target = GameManager.camera.vehicle_zoom_level
 	
-	update_visual_state()
+	visualizer.update()
 
 func exit_ship() -> void:
 	if not piloted:
@@ -152,7 +132,7 @@ func exit_ship() -> void:
 		GameManager.camera.focus_target = GameManager.player
 		GameManager.camera.zoom_target = GameManager.camera.standard_zoom_level
 	
-	update_visual_state()
+	visualizer.update()
 
 func _spawn_player(at_position: Vector2) -> void:
 	# Load and instantiate player scene

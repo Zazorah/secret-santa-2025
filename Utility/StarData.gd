@@ -3,7 +3,7 @@ extends Resource
 
 ## Data object for tracking star count and rank.
 
-@export var star_rank = 1 # Ranges from 1 - 4
+@export var star_rank = 3 # Ranges from 1 - 4
 @export var star_count = 0
 @export var constellation_count = 0
 

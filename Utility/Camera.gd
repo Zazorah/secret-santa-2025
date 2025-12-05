@@ -12,7 +12,7 @@ var zoom_target: float = 1.0
 var zoom_step: float = 0.10
 var zoom_min: float = 0.20
 var zoom_max: float = 3.00
-@export var zoom_speed: float = 10.0
+@export var zoom_speed: float = 5.0
 
 # Zoom Levels
 const standard_zoom_level: float = 1.0
