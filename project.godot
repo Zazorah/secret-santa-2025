@@ -74,6 +74,7 @@ advance_text={
 
 2d_physics/layer_1="Generic Solid"
 2d_physics/layer_2="Pass-Through Entity"
+2d_physics/layer_3="Ship"
 2d_physics/layer_4="Player"
 
 [rendering]

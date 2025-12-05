@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="5_gn47n"]
 [ext_resource type="PackedScene" uid="uid://crsr7p2h1rsrq" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.tscn" id="6_e72uu"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd6fu"]
+size = Vector2(60, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e6spy"]
 atlas = ExtResource("2_h44a1")
 region = Rect2(0, 0, 32, 32)
@@ -44,25 +47,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6knan"]
 size = Vector2(12, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd6fu"]
-size = Vector2(60, 20)
-
 [node name="NPCFrog" type="CharacterBody2D"]
 script = ExtResource("1_h44a1")
 cutscene_name = &"Frog"
 cutscene_key = &"frog_test"
 metadata/_custom_type_script = "uid://2wltjwcplwhv"
-
-[node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6knan")
-animation = &"idle"
-offset = Vector2(0, -16)
-script = ExtResource("3_ivsx0")
-metadata/_custom_type_script = "uid://d3uvftvuiacu4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_6knan")
 
 [node name="InteractionZone" type="Area2D" parent="."]
 collision_layer = 0
@@ -74,3 +63,14 @@ position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_dd6fu")
 
 [node name="InteractionIndicator" parent="InteractionZone" instance=ExtResource("6_e72uu")]
+
+[node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6knan")
+animation = &"idle"
+offset = Vector2(0, -16)
+script = ExtResource("3_ivsx0")
+metadata/_custom_type_script = "uid://d3uvftvuiacu4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_6knan")
