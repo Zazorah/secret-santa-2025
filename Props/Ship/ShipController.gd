@@ -3,6 +3,8 @@ extends RigidBody2D
 
 # State
 var piloted := false # Currently being piloted by the player.
+var current_state: ShipState
+var states := {}
 
 # Node References
 @onready var sprite: Sprite2D = $Body/Sprite2D
@@ -33,20 +35,76 @@ func _ready() -> void:
 	# Setup interactions
 	interaction_zone.interacted.connect(_enter_ship)
 	
+	# Initialize state machine
+	_setup_states()
+	
+	# Connect collision signal
+	body_entered.connect(_on_body_entered)
+	
 	update_visual_state()
+
+func _setup_states() -> void:
+	# Create state instances
+	var parked_state = ShipStateParked.new()
+	var flying_state = ShipStateFlying.new()
+	var collided_state = ShipStateCollided.new()
+	
+	# Set ship reference for each state
+	parked_state.ship = self
+	flying_state.ship = self
+	collided_state.ship = self
+	
+	# Store states
+	states["parked"] = parked_state
+	states["flying"] = flying_state
+	states["collided"] = collided_state
+	
+	# Start in parked state
+	current_state = states["parked"]
+	current_state.enter()
+
+func change_state(state_name: String) -> void:
+	if not states.has(state_name):
+		push_error("State not found: " + state_name)
+		return
+	
+	if current_state:
+		current_state.exit()
+	
+	current_state = states[state_name]
+	current_state.enter()
+	
+	print("Ship state changed to: ", state_name)
 
 func _process(delta: float) -> void:
 	if not piloted:
-		# Do auto-heal.
+		# Do auto-heal when not piloted
 		pass
-	
-	if piloted and _is_ship_grounded():
-		if Input.is_action_just_pressed("exit_ship"):
-			_exit_ship()
-	
-	# Placeholder Input
-	if piloted and Input.is_action_just_pressed("jump"):
-		linear_velocity += Vector2(500.0 * randf_range(-1.0, 1.0), -500.0)
+	else:
+		if current_state:
+			current_state.process(delta)
+
+func _physics_process(delta: float) -> void:
+	if piloted and current_state:
+		current_state.physics_process(delta)
+
+func _input(event: InputEvent) -> void:
+	if piloted and current_state:
+		current_state.handle_input(event)
+
+func _on_body_entered(body: Node) -> void:
+	# Only trigger collision state when piloted and not already collided
+	if piloted and current_state != states["collided"]:
+		# Check if it's an obstacle (not ground layer)
+		if body.collision_layer != 1:
+			# Calculate bounce direction (away from collision point)
+			var bounce_dir = (global_position - body.global_position).normalized()
+			
+			# Transition to collided state
+			if states["collided"] is ShipStateCollided:
+				states["collided"].set_bounce_direction(bounce_dir)
+			
+			change_state("collided")
 
 # Update sprite based on current health level.
 func update_visual_state() -> void:
@@ -75,7 +133,7 @@ func _enter_ship(_player: Node2D) -> void:
 	
 	update_visual_state()
 
-func _exit_ship() -> void:
+func exit_ship() -> void:
 	if not piloted:
 		return
 	
@@ -85,16 +143,9 @@ func _exit_ship() -> void:
 	# Stop Velocity
 	linear_velocity = Vector2.ZERO
 	angular_velocity = 0.0
-		
-	# Find closest ground position
-	var spawn_position = _find_closest_ground_position()
 	
 	# Spawn player at the position
-	if spawn_position:
-		_spawn_player(spawn_position)
-	else:
-		# Fallback: spawn at ship position if no ground found
-		_spawn_player(global_position)
+	_spawn_player(global_position)
 	
 	# Update camera focus to player
 	if GameManager.camera and GameManager.player:
@@ -103,56 +154,14 @@ func _exit_ship() -> void:
 	
 	update_visual_state()
 
-func _find_closest_ground_position() -> Vector2:
-	# Get the physics space
-	var space_state = get_world_2d().direct_space_state
-	
-	# Create a shape query to find nearby colliders on layer 1
-	var query = PhysicsShapeQueryParameters2D.new()
-	var shape = CircleShape2D.new()
-	shape.radius = 200.0 # Search radius - adjust as needed
-	query.shape = shape
-	query.transform = global_transform
-	query.collision_mask = 1 # Layer 1
-	query.exclude = [self] # Don't collide with ship itself
-	
-	# Find overlapping bodies
-	var results = space_state.intersect_shape(query, 32)
-	
-	if results.is_empty():
-		return Vector2.ZERO
-	
-	# Find the closest point among all colliding bodies
-	var closest_point = Vector2.ZERO
-	var closest_distance = INF
-	
-	for result in results:
-		# Raycast down from ship position to find surface point
-		var ray_query = PhysicsRayQueryParameters2D.create(
-			global_position,
-			global_position + Vector2.DOWN * 500 # Cast downward
-		)
-		ray_query.collision_mask = 1
-		ray_query.exclude = [self]
-		
-		var ray_result = space_state.intersect_ray(ray_query)
-		
-		if ray_result:
-			var distance = global_position.distance_to(ray_result.position)
-			if distance < closest_distance:
-				closest_distance = distance
-				# Offset slightly above the surface
-				closest_point = ray_result.position + ray_result.normal * 10.0
-	
-	return closest_point if closest_point != Vector2.ZERO else global_position
-
 func _spawn_player(at_position: Vector2) -> void:
 	# Load and instantiate player scene
 	var player_scene = preload("res://Entities/Characters/Player/PlayerCharacter.tscn")
-	var player = player_scene.instantiate()
+	var player = player_scene.instantiate() as EntityPlayer
 	
-	# Position the player
+	# Position the player and make em jump6
 	player.global_position = at_position
+	player.velocity = Vector2(0.0, -125.0)
 	
 	# Add to scene
 	get_tree().root.add_child(player)

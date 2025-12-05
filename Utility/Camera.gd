@@ -17,6 +17,7 @@ var zoom_max: float = 3.00
 # Zoom Levels
 const standard_zoom_level: float = 1.0
 const vehicle_zoom_level: float = 0.5
+const vehicle_flying_zoom_level: float = 0.33
 
 # Debug
 @export var debug: bool = true

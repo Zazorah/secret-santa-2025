@@ -9,11 +9,11 @@
 size = Vector2(31, 20)
 
 [node name="Ship" type="RigidBody2D"]
+gravity_scale = 0.5
 lock_rotation = true
 script = ExtResource("1_7d163")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-top_level = true
 use_parent_material = true
 scale = Vector2(1, 1.0235627)
 polygon = PackedVector2Array(-9, -11.723757, 8, -11.723757, 16, -3.907919, 16, 0, 23, 0, 26, 2.9309392, 26, 8.792818, 23, 11.723757, 15, 11.723757, 15, 14.6546955, 7, 22.470533, -7, 22.470533, -15, 14.6546955, -15, 11.723757, -24, 11.723757, -27, 9.769797, -27, 2.9309392, -24, 0, -16, 0, -16, -3.907919)
