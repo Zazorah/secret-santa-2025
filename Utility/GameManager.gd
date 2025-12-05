@@ -6,7 +6,4 @@ extends Node
 var player: Node2D
 
 # Camera
-var camera: Camera 
-
-func _ready() -> void:
-	DialogManager.play_dialog("choice_test")
+var camera: Camera

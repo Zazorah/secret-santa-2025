@@ -65,5 +65,6 @@ scenes/2/scene = ExtResource("3_eji20")
 
 [resource]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_lrifj")
 sources/1 = SubResource("TileSetScenesCollectionSource_v1bmi")

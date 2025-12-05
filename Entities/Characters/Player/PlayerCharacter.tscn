@@ -80,9 +80,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mts63"]
-size = Vector2(6, 17)
+size = Vector2(9, 16.5)
 
 [node name="PlayerCharacter" type="CharacterBody2D"]
+collision_layer = 9
 script = ExtResource("1_mts63")
 metadata/_custom_type_script = "uid://dya32qmeca06a"
 
@@ -94,5 +95,5 @@ script = ExtResource("2_mts63")
 metadata/_custom_type_script = "uid://d3uvftvuiacu4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8.5)
+position = Vector2(0.5, -8.25)
 shape = SubResource("RectangleShape2D_mts63")

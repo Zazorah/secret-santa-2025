@@ -21,6 +21,13 @@ func _ready() -> void:
 		GameManager.camera.focus_target = self
 	
 	GameManager.player = self
+	
+	# Set Collision Properties
+	collision_layer = 8
+	collision_mask = 1
+	
+	print("Player Collision Layer: ", collision_layer)
+	print("Player Collision Mask: ", collision_mask)
 
 func update_velocity(delta: float):
 	# Get horizontal input

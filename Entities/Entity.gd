@@ -16,10 +16,6 @@ func _ready() -> void:
 	# Link self with Visualizer
 	if visualizer:
 		visualizer.entity = self
-	
-	# Set collision properties
-	collision_layer = 2
-	collision_mask = 1
 
 func _physics_process(delta: float) -> void:
 	# Apply gravity

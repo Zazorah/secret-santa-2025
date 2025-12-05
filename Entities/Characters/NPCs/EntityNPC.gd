@@ -34,6 +34,10 @@ var wander_tolerance: float = 5.0
 func _ready():
 	super._ready()
 	
+	# Set Collision Properties
+	collision_layer = 2
+	collision_mask = 1
+	
 	# Set up interactions.
 	if cutscene_key and interaction_zone:
 		interaction_zone.entered.connect(_on_interaction_zone_enter)
@@ -43,6 +47,9 @@ func _ready():
 		print("Interaction Zone set up!")
 	
 	wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
+	
+	print("NPC Collision Layer: ", collision_layer)
+	print("NPC Collision Mask: ", collision_mask)
 
 func _process(delta: float) -> void:
 	# Interrupt state and begin watching if near player.

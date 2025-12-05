@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://crsr7p2h1rsrq"]
+
+[ext_resource type="Script" uid="uid://ddl257yoc6p7c" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.gd" id="1_bftfg"]
+[ext_resource type="Texture2D" uid="uid://b5u1cxbxfh3t3" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.png" id="1_kxsur"]
+
+[node name="InteractionIndicator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bftfg")
+
+[node name="Root" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Texture" type="TextureRect" parent="Root"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -40.0
+offset_right = 8.0
+offset_bottom = -25.0
+texture = ExtResource("1_kxsur")
