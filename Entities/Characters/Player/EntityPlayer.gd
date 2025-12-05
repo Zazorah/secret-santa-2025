@@ -10,7 +10,7 @@ extends Entity
 @export var friction: float = 1200.0
 
 # States
-enum State {IDLE, WALKING, JUMPING, FALLING}
+enum State {IDLE, WALKING, JUMPING, FALLING, TALKING}
 var current_state: State = State.IDLE
 
 func _ready() -> void:
@@ -25,11 +25,12 @@ func _ready() -> void:
 	# Set Collision Properties
 	collision_layer = 8
 	collision_mask = 1
-	
-	print("Player Collision Layer: ", collision_layer)
-	print("Player Collision Mask: ", collision_mask)
 
 func update_velocity(delta: float):
+	# Don't respond to any inputs when talking.
+	if current_state == State.TALKING:
+		return
+	
 	# Get horizontal input
 	var input_dir = Input.get_axis("move_left", "move_right")
 	

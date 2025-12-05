@@ -1,9 +1,11 @@
 {
   "axolotl_test": [
 	{
+	  "name": "Axolotl",
 	  "text": "Hello, there!"
 	},
 	{
+	  "name": "Axolotl",
 	  "text": "This is a message, and my name is Axolotl!"
 	}
   ],
@@ -32,16 +34,6 @@
 	},
 	{
 	  "text": "I do miss the games though... Do you know if they still have Pacman?",
-	  "choices": [
-		{
-		  "text": "Yes",
-		  "tag": "frog_test_yes"
-		},
-		{
-		  "text": "No",
-		  "tag": "frog_test_no"
-		}
-	  ]
 	}
   ],
 

@@ -48,7 +48,8 @@ size = Vector2(60, 20)
 
 [node name="NPCAxolotl" type="CharacterBody2D"]
 script = ExtResource("1_5mfrv")
-cutscene_key = &"AxolotlMessage"
+cutscene_name = &"Axolotl"
+cutscene_key = &"axolotl_test"
 metadata/_custom_type_script = "uid://2wltjwcplwhv"
 
 [node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]

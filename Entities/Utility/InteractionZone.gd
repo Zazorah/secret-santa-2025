@@ -25,8 +25,6 @@ func _ready() -> void:
 	# Doesn't collide, but should only be looking for the Player.
 	collision_layer = 0
 	collision_mask = 8
-	
-	print("InteractionZone ready on ", get_parent().name)
 
 func _input(event: InputEvent) -> void:
 	if not enabled:
@@ -38,9 +36,6 @@ func _input(event: InputEvent) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not enabled:
 		return
-	
-	print("Body entered InteractionZone: ", body.name)
-	print("Body is Player: ", body is EntityPlayer)
 	
 	if body not in _bodies_inside:
 		_bodies_inside.append(body)
@@ -58,4 +53,12 @@ func _on_body_exited(body: Node2D) -> void:
 
 func interact(body: Node2D) -> void:
 	if enabled:
+		# Remove body from list so that interactions can't be triggered again.
+		if body in _bodies_inside:
+			_bodies_inside.erase(body)
+			
 		interacted.emit(body)
+	
+	# Hide indicator
+	if indicator:
+		indicator.disappear()

@@ -8,6 +8,9 @@ extends CanvasLayer
 const TEXTBOX_SCENE = preload("res://Utility/Dialog/UI/Textbox/DialogTextbox.tscn")
 const CHOICEBOX_SCENE = preload("res://Utility/Dialog/UI/Choicebox/DialogChoicebox.tscn")
 
+# Emitted when all child nodes are ready.
+signal setup_complete
+
 # Emitted when the dialog scene is finished.
 signal finished
 
@@ -27,6 +30,8 @@ func _ready() -> void:
 	# Create Textbox
 	textbox = TEXTBOX_SCENE.instantiate() as DialogTextbox
 	add_child(textbox)
+	
+	setup_complete.emit()
 	
 	# Begin on First Line
 	_show_next_line()
@@ -58,7 +63,7 @@ func _hide_choices() -> void:
 
 func _input(event: InputEvent) -> void:
 	# Handle Textbox inputs
-	if textbox.active:
+	if textbox.active and current_line:
 		if not textbox.is_writing and event.is_action_pressed("advance_text"):
 			# Show choices if they exist.
 			if current_line.choices:

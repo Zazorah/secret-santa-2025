@@ -7,6 +7,7 @@ extends Entity
 # NOTE - For now, just reference a specific scene with a key. In the future
 #        we'll introduce a more elaborate system that picks the key based on
 #        different conditions.
+@export var cutscene_name: StringName
 @export var cutscene_key: StringName
 
 # State
@@ -28,6 +29,9 @@ var wander_tolerance: float = 5.0
 # Watching
 @export var watching_tolerance: float = 32.0
 
+# Talking State
+var current_textbox: DialogTextbox
+
 # Interaction Zone
 @onready var interaction_zone: InteractionZone = $InteractionZone
 
@@ -40,16 +44,10 @@ func _ready():
 	
 	# Set up interactions.
 	if cutscene_key and interaction_zone:
-		interaction_zone.entered.connect(_on_interaction_zone_enter)
-		interaction_zone.exited.connect(_on_interaction_zone_exit)
 		interaction_zone.interacted.connect(_on_interact)
-		
-		print("Interaction Zone set up!")
 	
 	wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 	
-	print("NPC Collision Layer: ", collision_layer)
-	print("NPC Collision Mask: ", collision_mask)
 
 func _process(delta: float) -> void:
 	# Interrupt state and begin watching if near player.
@@ -169,14 +167,32 @@ func _is_path_clear(direction: int, distance: float) -> bool:
 func _setup_interaction_zone() -> void:
 	pass
 
-func _on_interaction_zone_enter(node: Node2D) -> void:
-	print("Zone Entered by Player:", node)
-
-func _on_interaction_zone_exit(node: Node2D) -> void:
-	print("Zone Exited by Player:", node)
-
-func _on_interact(node: Node2D) -> void:
-	print("Interacted with by Player:", node)
+func _on_interact(_node: Node2D) -> void:
+	if DialogManager.has_scene(cutscene_key):
+		# Alter interacter and NPC state.
+		var prev_state = current_state
+		change_state(State.TALKING)
+		
+		var prev_player_state = null
+		if GameManager.player:
+			prev_player_state = GameManager.player.current_state
+			GameManager.player.current_state = EntityPlayer.State.TALKING
+		
+		# Begin dialog sequence.
+		var player = DialogManager.play_dialog(cutscene_key)
+		
+		await player.setup_complete
+		
+		# Grab hold of Textbox
+		current_textbox = player.textbox
+		
+		await player.finished
+		
+		# Reset states.
+		change_state(prev_state)
+		
+		if GameManager.player:
+			GameManager.player.current_state = prev_player_state
 
 # Utility Methods
 func _is_near_player() -> bool:
