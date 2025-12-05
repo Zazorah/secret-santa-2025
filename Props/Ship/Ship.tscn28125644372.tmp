@@ -1,51 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://6otq5m0fjylb"]
+[gd_scene load_steps=7 format=3 uid="uid://6otq5m0fjylb"]
 
 [ext_resource type="Script" uid="uid://4uy4dyrseg1t" path="res://Props/Ship/ShipController.gd" id="1_7d163"]
 [ext_resource type="Texture2D" uid="uid://crr77axwnavkt" path="res://Props/Ship/Assets/Ship_S4.png" id="1_xik1j"]
 [ext_resource type="Script" uid="uid://cnjewx87coh7s" path="res://Props/Ship/Visualizer/ShipVisualizer.gd" id="2_wv8bo"]
 [ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="3_i7mq8"]
-[ext_resource type="Texture2D" uid="uid://cwfcoj6deccj4" path="res://Props/Ship/Assets/CircleParticle.png" id="3_uri0i"]
 [ext_resource type="PackedScene" uid="uid://crsr7p2h1rsrq" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.tscn" id="4_wv8bo"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uri0i"]
-particles_animation = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_wv8bo"]
-_limits = [0.0, 200.0, 0.0, 1.0]
-_data = [Vector2(0, 193.25842), 0.0, 0.0, 0, 0, Vector2(0.5, 105.61798), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_uri0i"]
-curve = SubResource("Curve_wv8bo")
-
-[sub_resource type="Curve" id="Curve_uri0i"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_82v7x"]
-curve = SubResource("Curve_uri0i")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vho1p"]
-lifetime_randomness = 0.4
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, 2, 0)
-emission_shape_scale = Vector3(5, 2, 1)
-emission_shape = 3
-emission_box_extents = Vector3(1, 1, 1)
-angular_velocity_min = -149.61002
-angular_velocity_max = 149.60999
-gravity = Vector3(0, 15, 0)
-linear_accel_min = -2.0200021
-linear_accel_max = -2.0200021
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_82v7x")
-anim_speed_curve = SubResource("CurveTexture_uri0i")
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uri0i"]
 size = Vector2(31, 20)
@@ -62,14 +21,6 @@ polygon = PackedVector2Array(-9, -11.723757, 8, -11.723757, 16, -3.907919, 16, 0
 
 [node name="Visualizer" type="Node2D" parent="."]
 script = ExtResource("2_wv8bo")
-
-[node name="FlyingParticleEmitter" type="GPUParticles2D" parent="Visualizer"]
-material = SubResource("CanvasItemMaterial_uri0i")
-emitting = false
-amount = 24
-texture = ExtResource("3_uri0i")
-lifetime = 5.0
-process_material = SubResource("ParticleProcessMaterial_vho1p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Visualizer"]
 texture = ExtResource("1_xik1j")

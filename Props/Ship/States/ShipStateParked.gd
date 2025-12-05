@@ -8,7 +8,9 @@ func enter() -> void:
 	takeoff_timer = 0.0
 	ship.linear_velocity = Vector2.ZERO
 	ship.angular_velocity = 0.0
-	ship.lock_rotation = true
+	
+	ship.visualizer.flying_particle_emitter.emitting = false
+	ship.visualizer.reset_rotation()
 
 func exit() -> void:
 	takeoff_timer = 0.0

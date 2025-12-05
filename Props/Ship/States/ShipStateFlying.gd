@@ -12,6 +12,8 @@ var takeoff_buffer: int
 func enter() -> void:
 	takeoff_buffer = TAKEOFF_BUFFER_CAP
 	
+	ship.visualizer.flying_particle_emitter.emitting = true
+	
 	if GameManager.camera:
 		GameManager.camera.zoom_target = GameManager.camera.vehicle_zoom_level
 
@@ -24,6 +26,10 @@ func physics_process(_delta: float) -> void:
 	var horizontal_input = Input.get_axis("move_left", "move_right")
 	if horizontal_input != 0:
 		ship.apply_central_force(Vector2(horizontal_input * HORIZONTAL_SPEED, 0))
+		# Rotate towards horizontal movement
+		ship.visualizer.rot_target = 15.0 * horizontal_input
+	else:
+		ship.visualizer.rot_target = 0.0
 	
 	if takeoff_buffer > 0:
 		takeoff_buffer -= 1
