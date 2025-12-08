@@ -27,7 +27,7 @@ position = Vector2(139, 98)
 position = Vector2(84, 120)
 
 [node name="NPCFrog" parent="." instance=ExtResource("6_vhexg")]
-position = Vector2(-102, 80)
+position = Vector2(429, 120)
 
 [node name="NPCFork" parent="." instance=ExtResource("7_fi5io")]
 position = Vector2(1208, -213)
