@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://vtji68yn4ypp"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://vtji68yn4ypp"]
 
 [ext_resource type="Texture2D" uid="uid://cyelm37il1fqm" path="res://World/Tilesets/Assets/Tileset_Placeholder.png" id="1_42idl"]
 [ext_resource type="PackedScene" uid="uid://tc44ygkw6ah1" path="res://Props/Crate/PropCrate.tscn" id="2_v1bmi"]
 [ext_resource type="PackedScene" uid="uid://dxti3vloxw2ey" path="res://Props/Dustball/PropDustball.tscn" id="3_eji20"]
+[ext_resource type="PackedScene" uid="uid://2xyvlvxqgbti" path="res://Props/Stars/PropStar.tscn" id="4_eji20"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrifj"]
 texture = ExtResource("1_42idl")
@@ -62,6 +63,7 @@ texture = ExtResource("1_42idl")
 resource_name = "Props"
 scenes/1/scene = ExtResource("2_v1bmi")
 scenes/2/scene = ExtResource("3_eji20")
+scenes/3/scene = ExtResource("4_eji20")
 
 [resource]
 physics_layer_0/collision_layer = 1

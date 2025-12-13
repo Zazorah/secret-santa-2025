@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qlcpkbyg2elt"
-path="res://.godot/imported/TractorBeam_Pink.png-3a40f80574b9dc5ab53c7983a06f6c7a.ctex"
+uid="uid://bucms418c3cgq"
+path="res://.godot/imported/TractorBeam_Blue.png-6881f3c8a00f5d00f5acc59ac2860de2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Props/Ship/Assets/TractorBeam_Pink.png"
-dest_files=["res://.godot/imported/TractorBeam_Pink.png-3a40f80574b9dc5ab53c7983a06f6c7a.ctex"]
+source_file="res://Props/Ship/Tractor Beam/Assets/TractorBeam_Blue.png"
+dest_files=["res://.godot/imported/TractorBeam_Blue.png-6881f3c8a00f5d00f5acc59ac2860de2.ctex"]
 
 [params]
 
