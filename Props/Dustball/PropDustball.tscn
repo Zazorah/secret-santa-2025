@@ -7,6 +7,8 @@ radius = 7.0
 
 [node name="Dustball" type="RigidBody2D"]
 collision_layer = 16
+mass = 0.5
+gravity_scale = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uky1p")

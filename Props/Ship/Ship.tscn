@@ -52,7 +52,7 @@ collision_bounce = 0.0
 size = Vector2(31, 20)
 
 [node name="Ship" type="RigidBody2D"]
-gravity_scale = 0.5
+gravity_scale = 0.25
 lock_rotation = true
 script = ExtResource("1_7d163")
 

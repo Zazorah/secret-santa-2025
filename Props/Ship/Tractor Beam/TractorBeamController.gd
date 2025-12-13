@@ -2,7 +2,7 @@ class_name TractorBeamController
 extends Area2D
 
 # Properties
-const PULL_STRENGTH = 150.0
+const PULL_STRENGTH = 500.0
 
 # State
 var active: bool
@@ -42,11 +42,22 @@ func _on_deactivate() -> void:
 	# Empty the list of bodies.
 	affecting_bodies.clear()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	for body in affecting_bodies:
+		body.sleeping = false
+		
 		var direction = (ship.global_position - body.global_position)
 		var distance = direction.length()
 		direction = direction.normalized()
 		
 		var strength = PULL_STRENGTH * (1.0 / max(distance, 1.0))
-		body.apply_force(direction * strength)
+		strength = PULL_STRENGTH
+		
+		var total_mass = ship.mass + body.mass
+		var body_force_multiplier = ship.mass / total_mass
+		var ship_force_multiplier = body.mass / total_mass
+		
+		body.apply_force(direction * strength * body_force_multiplier, Vector2.ZERO)
+		# ship.apply_force(-direction * strength * ship_force_multiplier, Vector2.ZERO)
+		
+		print("Pulling ", body.name, " with a strength of ", strength)
