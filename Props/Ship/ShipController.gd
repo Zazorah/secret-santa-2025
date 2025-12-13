@@ -9,6 +9,7 @@ var states := {}
 # Node References
 @onready var visualizer: ShipVisualizer = $Visualizer
 @onready var interaction_zone: InteractionZone = $InteractionZone
+@onready var beam: TractorBeamController = $TractorBeam
 
 # Stats
 var health = 1

@@ -5,7 +5,7 @@ const TAKEOFF_BUFFER_CAP = 10 # Amount of frames before we can enter another sta
 const UPWARD_THRUST = 800.0
 const HORIZONTAL_SPEED = 300.0
 const BOUNCE_DAMPING = 0.6  # Velocity multiplier on bounce
-const MIN_LANDING_SPEED = 100.0  # Max speed to land safely
+const MIN_LANDING_SPEED = 10.0  # Max speed to land safely
 
 var takeoff_buffer: int
 
@@ -16,6 +16,9 @@ func enter() -> void:
 	
 	if GameManager.camera:
 		GameManager.camera.zoom_target = GameManager.camera.vehicle_zoom_level
+
+func exit() -> void:
+	ship.beam.set_active(false)
 
 func physics_process(_delta: float) -> void:
 	# Upward thrust when holding jump
@@ -34,6 +37,12 @@ func physics_process(_delta: float) -> void:
 	if takeoff_buffer > 0:
 		takeoff_buffer -= 1
 		return
+	
+	# Beam controls
+	if Input.is_action_just_pressed("beam"):
+		ship.beam.set_active(true)
+	elif Input.is_action_just_released("beam"):
+		ship.beam.set_active(false)
 	
 	# Check for ground collision
 	if ship._is_ship_grounded():

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwl61vnse25sy"]
+
+[ext_resource type="Script" uid="uid://j5dpqhqai60b" path="res://Props/Ship/Tractor Beam/TractorBeamController.gd" id="1_f5m50"]
+[ext_resource type="PackedScene" uid="uid://bp0tw8iuotbdw" path="res://Props/Ship/Tractor Beam/TractorBeamVisualizer.tscn" id="2_a686t"]
+
+[node name="TractorBeam" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_f5m50")
+
+[node name="TractorBeamVisualizer" parent="." instance=ExtResource("2_a686t")]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-5, 0, 5, 0, 17, 48, -17, 48)

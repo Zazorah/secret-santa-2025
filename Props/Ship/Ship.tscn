@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://6otq5m0fjylb"]
+[gd_scene load_steps=15 format=3 uid="uid://6otq5m0fjylb"]
 
 [ext_resource type="Script" uid="uid://4uy4dyrseg1t" path="res://Props/Ship/ShipController.gd" id="1_7d163"]
 [ext_resource type="Texture2D" uid="uid://crr77axwnavkt" path="res://Props/Ship/Assets/Ship_S4.png" id="1_xik1j"]
+[ext_resource type="PackedScene" uid="uid://dwl61vnse25sy" path="res://Props/Ship/Tractor Beam/TractorBeam.tscn" id="2_82v7x"]
 [ext_resource type="Script" uid="uid://cnjewx87coh7s" path="res://Props/Ship/Visualizer/ShipVisualizer.gd" id="2_wv8bo"]
 [ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="3_i7mq8"]
 [ext_resource type="Texture2D" uid="uid://cwfcoj6deccj4" path="res://Props/Ship/Assets/CircleParticle.png" id="3_uri0i"]
@@ -59,6 +60,9 @@ script = ExtResource("1_7d163")
 use_parent_material = true
 scale = Vector2(1, 1.0235627)
 polygon = PackedVector2Array(-9, -11.723757, 8, -11.723757, 16, -3.907919, 16, 0, 23, 0, 26, 2.9309392, 26, 8.792818, 23, 11.723757, 15, 11.723757, 15, 14.6546955, 7, 22.470533, -7, 22.470533, -15, 14.6546955, -15, 11.723757, -24, 11.723757, -27, 9.769797, -27, 2.9309392, -24, 0, -16, 0, -16, -3.907919)
+
+[node name="TractorBeam" parent="." instance=ExtResource("2_82v7x")]
+position = Vector2(0, 15)
 
 [node name="Visualizer" type="Node2D" parent="."]
 script = ExtResource("2_wv8bo")
