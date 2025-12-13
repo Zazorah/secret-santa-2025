@@ -58,6 +58,4 @@ func _physics_process(_delta: float) -> void:
 		var ship_force_multiplier = body.mass / total_mass
 		
 		body.apply_force(direction * strength * body_force_multiplier, Vector2.ZERO)
-		# ship.apply_force(-direction * strength * ship_force_multiplier, Vector2.ZERO)
-		
-		print("Pulling ", body.name, " with a strength of ", strength)
+		ship.apply_force(-direction * strength * ship_force_multiplier, Vector2.ZERO)

@@ -6,6 +6,7 @@ const UPWARD_THRUST = 800.0
 const HORIZONTAL_SPEED = 300.0
 const BOUNCE_DAMPING = 0.6  # Velocity multiplier on bounce
 const MIN_LANDING_SPEED = 10.0  # Max speed to land safely
+const MAX_SPEED = 500.0
 
 var takeoff_buffer: int
 
@@ -33,6 +34,9 @@ func physics_process(_delta: float) -> void:
 		ship.visualizer.rot_target = 15.0 * horizontal_input
 	else:
 		ship.visualizer.rot_target = 0.0
+	
+	if ship.linear_velocity.length() > MAX_SPEED:
+		ship.linear_velocity = ship.linear_velocity.normalized() * MAX_SPEED
 	
 	if takeoff_buffer > 0:
 		takeoff_buffer -= 1

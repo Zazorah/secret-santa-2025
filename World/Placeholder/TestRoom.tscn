@@ -20,14 +20,14 @@ script = ExtResource("1_chg7e")
 metadata/_custom_type_script = "uid://c1u3337rkmd6x"
 
 [node name="PropLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD8/wUAAQAAAAAAAQD4/wQAAQAAAAAAAQD4/wMAAQAAAAAAAQD5/wQAAQAAAAAAAQD4/wEAAQAAAAAAAgALAAUAAQAAAAAAAgAMAAUAAQAAAAAAAgANAAUAAQAAAAAAAgAOAAUAAQAAAAAAAgAPAAUAAQAAAAAAAgAQAAUAAQAAAAAAAgARAAUAAQAAAAAAAgAMAAQAAQAAAAAAAgANAAQAAQAAAAAAAgAOAAQAAQAAAAAAAgAPAAQAAQAAAAAAAgAQAAQAAQAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAD8/wUAAQAAAAAAAQD4/wQAAQAAAAAAAQD4/wMAAQAAAAAAAQD5/wQAAQAAAAAAAQD4/wEAAQAAAAAAAgALAAUAAQAAAAAAAgAMAAUAAQAAAAAAAgANAAUAAQAAAAAAAgAOAAUAAQAAAAAAAgAPAAUAAQAAAAAAAgAQAAUAAQAAAAAAAgARAAUAAQAAAAAAAgAMAAQAAQAAAAAAAgANAAQAAQAAAAAAAgAOAAQAAQAAAAAAAgAPAAQAAQAAAAAAAgAQAAQAAQAAAAAAAgAmAAMAAQAAAAAAAwAoAAMAAQAAAAAAAwAqAAMAAQAAAAAAAwAsAAMAAQAAAAAAAwA=")
 tile_set = ExtResource("3_8h5r4")
 
 [node name="Ship" parent="." instance=ExtResource("7_xfvp6")]
 position = Vector2(139, 98)
 
 [node name="NPCAxolotl" parent="." instance=ExtResource("5_dv4i4")]
-position = Vector2(84, 120)
+position = Vector2(-286, -241)
 
 [node name="NPCFrog" parent="." instance=ExtResource("6_vhexg")]
 position = Vector2(429, 120)
@@ -43,6 +43,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAABAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAA
 tile_set = ExtResource("3_8h5r4")
 
 [node name="My Big Block" type="RigidBody2D" parent="."]
+position = Vector2(-181, -35)
 collision_layer = 17
 mass = 0.05
 gravity_scale = 0.5
