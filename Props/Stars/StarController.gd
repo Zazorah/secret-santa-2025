@@ -24,7 +24,7 @@ func _ready() -> void:
 			Only let this slide in a testing environment."
 		)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if current_state == State.LOCKED:
 		if hover_target:
 			var direction = (hover_target.global_position - global_position)

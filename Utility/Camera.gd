@@ -20,7 +20,7 @@ const vehicle_zoom_level: float = 0.5
 const vehicle_flying_zoom_level: float = 0.33
 
 # Debug
-@export var debug: bool = true
+@export var debug: bool = false
 
 func _ready() -> void:
 	GameManager.camera = self
