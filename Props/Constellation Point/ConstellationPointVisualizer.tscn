@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://knsyph46obs6"]
+
+[ext_resource type="Texture2D" uid="uid://c4xndmus38bac" path="res://Props/Constellation Point/ConstellationPoint.png" id="1_3t8ku"]
+
+[node name="ConstellationPointVisualizer" type="Node2D"]
+
+[node name="ConstellationPoint" type="Sprite2D" parent="."]
+texture = ExtResource("1_3t8ku")
