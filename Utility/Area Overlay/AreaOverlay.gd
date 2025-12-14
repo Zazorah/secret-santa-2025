@@ -2,7 +2,8 @@ class_name AreaOverlay
 extends CanvasLayer
 
 const TEXTURE_LOOKUP := {
-	"Crater County": preload("res://Utility/Area Overlay/Assets/CraterCounty.png")
+	"Crater County": preload("res://Utility/Area Overlay/Assets/CraterCounty.png"),
+	"Satellite City": preload("res://Utility/Area Overlay/Assets/SatelliteCity.png")
 }
 
 @onready var sprite = $Sprite 

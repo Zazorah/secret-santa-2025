@@ -26,10 +26,6 @@ func _ready() -> void:
 	create_new_game()
 
 func _process(_delta: float) -> void:
-	# Test
-	if Input.is_action_just_pressed("jump"):
-		set_area("Crater County")
-	
 	# Action Queue
 	var action = null
 	while interaction_queue.size() > 0:
@@ -54,10 +50,9 @@ func load_game() -> void:
 	pass
 
 func set_area(new_area: StringName) -> void:
-	if new_area != current_area:
-		# Show UI.
+	var show_ui = new_area != current_area
+	current_area = new_area
+	
+	if show_ui:
 		var indicator = AREA_UI.instantiate()
 		add_child(indicator)
-		pass
-	
-	current_area = new_area

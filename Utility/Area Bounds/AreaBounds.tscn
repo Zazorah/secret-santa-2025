@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://xqyqj75qfe83"]
+
+[ext_resource type="Script" uid="uid://wlve2vmllmih" path="res://Utility/Area Bounds/AreaBounds.gd" id="1_t5sjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u2c4"]
+
+[node name="AreaBounds" type="Area2D"]
+collision_layer = 0
+collision_mask = 9
+script = ExtResource("1_t5sjq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0u2c4")
