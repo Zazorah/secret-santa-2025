@@ -14,6 +14,8 @@ var star_data: StarData
 
 # Map Data
 var current_area: StringName
+var spawn_tag: StringName
+var current_room: Room
 
 const AREA_UI := preload("res://Utility/Area Overlay/AreaOverlay.tscn")
 
