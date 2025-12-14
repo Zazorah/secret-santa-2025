@@ -12,6 +12,11 @@ var camera: Camera
 var ship_data: ShipData
 var star_data: StarData
 
+# Map Data
+var current_area: StringName
+
+const AREA_UI := preload("res://Utility/Area Overlay/AreaOverlay.tscn")
+
 # Interaction Queue
 var interaction_queue: Array[Variant]
 
@@ -20,7 +25,8 @@ func _ready() -> void:
 	#        Just loading a new game for now.
 	create_new_game()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	# Action Queue
 	var action = null
 	while interaction_queue.size() > 0:
 		var top = interaction_queue.pop_front()
@@ -42,3 +48,11 @@ func save_game() -> void:
 # Load the game state from a file.
 func load_game() -> void:
 	pass
+
+func set_area(new_area: StringName) -> void:
+	var show_ui = new_area != current_area
+	current_area = new_area
+	
+	if show_ui:
+		var indicator = AREA_UI.instantiate()
+		add_child(indicator)
