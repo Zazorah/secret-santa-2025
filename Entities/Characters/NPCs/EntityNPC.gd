@@ -44,7 +44,12 @@ func _ready():
 	
 	# Set up interactions.
 	if cutscene_key and interaction_zone:
-		interaction_zone.interacted.connect(_on_interact)
+		interaction_zone.interacted.connect(func (_node):
+			GameManager.interaction_queue.push_front({
+				"method": func(): _on_interact(null),
+				"priority": 1
+			})
+		)
 	
 	wander_timer = randf_range(wander_idle_time_min, wander_idle_time_max)
 	

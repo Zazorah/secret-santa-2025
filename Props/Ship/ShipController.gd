@@ -19,7 +19,12 @@ func _ready() -> void:
 	collision_layer = 4
 	
 	# Setup interactions
-	interaction_zone.interacted.connect(_enter_ship)
+	interaction_zone.interacted.connect(func (_node):
+		GameManager.interaction_queue.push_front({
+			"method": func (): _enter_ship(null),
+			"priority": 5
+		})
+	)
 	
 	# Setup visualizer
 	visualizer.ship = self
