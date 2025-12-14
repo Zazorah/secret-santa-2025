@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bifnq0l7ibum6"]
+
+[ext_resource type="Script" uid="uid://ckg13lxp7xxp1" path="res://Props/Constellation Point/ConstellationPointController.gd" id="1_gxgrr"]
+[ext_resource type="PackedScene" uid="uid://knsyph46obs6" path="res://Props/Constellation Point/ConstellationPointVisualizer.tscn" id="2_gxgrr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxgrr"]
+radius = 32.0
+
+[node name="ConstellationPoint" type="Node2D"]
+script = ExtResource("1_gxgrr")
+
+[node name="ConstellationPointVisualizer" parent="." instance=ExtResource("2_gxgrr")]
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_gxgrr")
