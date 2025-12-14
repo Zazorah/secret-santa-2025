@@ -23,20 +23,28 @@ tile_map_data = PackedByteArray("AAD8/wUAAQAAAAAAAQD4/wQAAQAAAAAAAQD4/wMAAQAAAAA
 tile_set = ExtResource("3_8h5r4")
 
 [node name="PropStar" parent="." instance=ExtResource("8_xfvp6")]
-position = Vector2(558, 68)
+position = Vector2(558, -138)
 star_key = &"TestStarA"
+
+[node name="PropStar2" parent="." instance=ExtResource("8_xfvp6")]
+position = Vector2(632, -221)
+star_key = &"TestStarB"
+
+[node name="PropStar3" parent="." instance=ExtResource("8_xfvp6")]
+position = Vector2(714, -301)
+star_key = &"TestStarC"
 
 [node name="ConstellationPoint" parent="." instance=ExtResource("9_mdmyp")]
 position = Vector2(558, -36)
 constellation_key = &"TestPointA"
 
 [node name="ConstellationPoint2" parent="." instance=ExtResource("9_mdmyp")]
-position = Vector2(715, -134)
+position = Vector2(635, -38)
 constellation_key = &"TestPointB"
 
 [node name="ConstellationPoint3" parent="." instance=ExtResource("9_mdmyp")]
-position = Vector2(227, 21)
-constellation_key = &"PrefillPointKey"
+position = Vector2(714, -37)
+constellation_key = &"TestPointC"
 
 [node name="Ship" parent="." instance=ExtResource("7_xfvp6")]
 position = Vector2(139, 98)

@@ -30,6 +30,13 @@ func _ready() -> void:
 	# Connect collision signal
 	body_entered.connect(_on_body_entered)
 	
+	# GameManager connect rank up instruction
+	GameManager.star_data.rank_increased.connect(func (_new_rank):
+		print("Ship health is now: ", _new_rank)
+		health = _new_rank
+		visualizer.update()
+	)
+	
 	visualizer.update.call_deferred()
 
 func _setup_states() -> void:
