@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://0n5eyj7adbmb"]
+
+[ext_resource type="Texture2D" uid="uid://drmi7b8vg1nkv" path="res://Utility/Area Overlay/Assets/CraterCounty.png" id="1_5yt2g"]
+[ext_resource type="Script" uid="uid://ca0sck6dykrll" path="res://Utility/Area Overlay/AreaOverlay.gd" id="1_pc7c7"]
+
+[node name="AreaOverlay" type="CanvasLayer"]
+script = ExtResource("1_pc7c7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(144, 72)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_5yt2g")
