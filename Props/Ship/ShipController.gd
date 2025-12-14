@@ -9,6 +9,7 @@ var states := {}
 # Node References
 @onready var visualizer: ShipVisualizer = $Visualizer
 @onready var interaction_zone: InteractionZone = $InteractionZone
+@onready var beam: TractorBeamController = $TractorBeam
 
 # Stats
 var health = 1
@@ -18,7 +19,12 @@ func _ready() -> void:
 	collision_layer = 4
 	
 	# Setup interactions
-	interaction_zone.interacted.connect(_enter_ship)
+	interaction_zone.interacted.connect(func (_node):
+		GameManager.interaction_queue.push_front({
+			"method": func (): _enter_ship(null),
+			"priority": 5
+		})
+	)
 	
 	# Setup visualizer
 	visualizer.ship = self
@@ -28,6 +34,13 @@ func _ready() -> void:
 	
 	# Connect collision signal
 	body_entered.connect(_on_body_entered)
+	
+	# GameManager connect rank up instruction
+	GameManager.star_data.rank_increased.connect(func (_new_rank):
+		print("Ship health is now: ", _new_rank)
+		health = _new_rank
+		visualizer.update()
+	)
 	
 	visualizer.update.call_deferred()
 

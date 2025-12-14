@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://sekigwdfuswx" path="res://Entities/Characters/NPCs/Example Scenes/NPCFork.tscn" id="7_fi5io"]
 [ext_resource type="PackedScene" uid="uid://6otq5m0fjylb" path="res://Props/Ship/Ship.tscn" id="7_xfvp6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j6e0t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_07v8v"]
 texture = ExtResource("2_07v8v")
 0:0/0 = 0
 0:1/0 = 0
@@ -158,7 +158,7 @@ texture = ExtResource("2_07v8v")
 15:8/0 = 0
 14:7/0 = 0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ve7xd"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t0rno"]
 resource_name = "Props"
 scenes/1/scene = ExtResource("3_t0rno")
 scenes/2/scene = ExtResource("4_0vtxp")
@@ -166,8 +166,8 @@ scenes/2/scene = ExtResource("4_0vtxp")
 [sub_resource type="TileSet" id="TileSet_hpymd"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_j6e0t")
-sources/1 = SubResource("TileSetScenesCollectionSource_ve7xd")
+sources/0 = SubResource("TileSetAtlasSource_07v8v")
+sources/1 = SubResource("TileSetScenesCollectionSource_t0rno")
 
 [node name="TestRoom" type="Node2D"]
 

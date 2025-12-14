@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2xyvlvxqgbti"]
+
+[ext_resource type="Script" uid="uid://bgdktnjt8l62f" path="res://Props/Stars/StarController.gd" id="1_0ce3i"]
+[ext_resource type="Texture2D" uid="uid://b6lk6kmu2u4je" path="res://Props/Stars/Star.png" id="1_0j4b0"]
+
+[node name="PropStar" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 17
+mass = 0.4
+gravity_scale = 0.1
+script = ExtResource("1_0ce3i")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_0j4b0")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -7, 5, -4, 7, -2, 6, 5, 4, 7, -4, 7, -6, 5, -7, -2, -5, -4)
