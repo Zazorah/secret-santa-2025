@@ -13,6 +13,9 @@ extends Entity
 enum State {IDLE, WALKING, JUMPING, FALLING, TALKING}
 var current_state: State = State.IDLE
 
+# SFX References
+const JUMP_SFX := preload("res://Assets/Audio/SFX/Effect_CutInOpen.wav")
+
 func _ready() -> void:
 	super._ready()
 	
@@ -47,6 +50,8 @@ func update_velocity(delta: float):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		current_state = State.JUMPING
+		
+		AudioManager.play_sfx(JUMP_SFX)
 		
 		if visualizer:
 			visualizer.squish(0.5)
