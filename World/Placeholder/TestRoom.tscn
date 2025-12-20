@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b0gsog6fd8xua"]
+[gd_scene load_steps=13 format=4 uid="uid://b0gsog6fd8xua"]
 
 [ext_resource type="Script" uid="uid://c1u3337rkmd6x" path="res://Utility/Camera.gd" id="1_chg7e"]
 [ext_resource type="Script" uid="uid://c70vpdfvgvvn0" path="res://World/Room.gd" id="1_t0rno"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bifnq0l7ibum6" path="res://Props/Constellation Point/ConstellationPoint.tscn" id="9_mdmyp"]
 [ext_resource type="PackedScene" uid="uid://xqyqj75qfe83" path="res://Utility/Area Bounds/AreaBounds.tscn" id="10_07v8v"]
 [ext_resource type="PackedScene" uid="uid://dvebmjqyfwilv" path="res://Props/Player Spawn/PlayerSpawn.tscn" id="10_t0rno"]
+[ext_resource type="PackedScene" uid="uid://ra6ephxav7ci" path="res://Props/Door/Door.tscn" id="12_0vtxp"]
 
 [node name="TestRoom" type="Node2D"]
 script = ExtResource("1_t0rno")
@@ -71,10 +72,14 @@ tile_map_data = PackedByteArray("AAAAAAgAAAABAAAAAAABAAgAAAABAAAAAAACAAgAAAABAAA
 tile_set = ExtResource("3_8h5r4")
 
 [node name="DefaultSpawn" parent="." instance=ExtResource("10_t0rno")]
-position = Vector2(71, 129)
+position = Vector2(-200, 16)
 tag = &"TestA"
 is_default = true
 
 [node name="OtherSpawn" parent="." instance=ExtResource("10_t0rno")]
 position = Vector2(-227, -223)
 tag = &"TestB"
+
+[node name="Door" parent="." instance=ExtResource("12_0vtxp")]
+position = Vector2(-148, 16)
+spawn_tag = null

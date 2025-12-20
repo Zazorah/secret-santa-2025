@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ra6ephxav7ci"]
+
+[ext_resource type="Texture2D" uid="uid://c65p6ncsr1nqe" path="res://Props/Door/Assets/DoorPlaceholder.png" id="1_goe0p"]
+[ext_resource type="Script" uid="uid://yfn076jhmyw0" path="res://Props/Door/Door.gd" id="2_4gcux"]
+[ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="2_83kqr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gcux"]
+size = Vector2(32, 30)
+
+[node name="Door" type="Sprite2D"]
+texture = ExtResource("1_goe0p")
+offset = Vector2(0, -24)
+script = ExtResource("2_4gcux")
+
+[node name="InteractionZone" type="Area2D" parent="."]
+script = ExtResource("2_83kqr")
+metadata/_custom_type_script = "uid://vnufhh7q4sx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_4gcux")

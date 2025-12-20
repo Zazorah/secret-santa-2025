@@ -40,7 +40,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body not in _bodies_inside:
 		_bodies_inside.append(body)
 		entered.emit(body)
-		
+	
+	if indicator:
 		indicator.reveal()
 
 func _on_body_exited(body: Node2D) -> void:
@@ -48,7 +49,7 @@ func _on_body_exited(body: Node2D) -> void:
 		_bodies_inside.erase(body)
 		exited.emit(body)
 	
-	if _bodies_inside.size() == 0:
+	if _bodies_inside.size() == 0 and indicator:
 		indicator.disappear()
 
 func interact(body: Node2D) -> void:
