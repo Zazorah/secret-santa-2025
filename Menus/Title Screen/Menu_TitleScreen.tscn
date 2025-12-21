@@ -181,7 +181,93 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lelv7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Credits" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="A Game By" type="Control" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/A Game By"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 12
+text = "A Game By"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="packRabbit" type="Control" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(128, 16)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/packRabbit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "packRabbit"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Jesse Wade" type="Control" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(128, 16)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/Jesse Wade"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Jesse Wade"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tanookitalez" type="Control" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(128, 16)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits/VBoxContainer/tanookitalez"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "and tanookitalez"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -190,21 +276,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Logo" type="Control" parent="VBoxContainer"]
+[node name="Logo" type="Control" parent="Menu"]
 custom_minimum_size = Vector2(0, 144)
 layout_mode = 2
 
-[node name="TextureRect" type="AnimatedSprite2D" parent="VBoxContainer/Logo"]
+[node name="TextureRect" type="AnimatedSprite2D" parent="Menu/Logo"]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_inut7")
-frame_progress = 0.5984558
+frame_progress = 0.84319973
 offset = Vector2(0, 288)
 
-[node name="Options" type="Control" parent="VBoxContainer"]
+[node name="Options" type="Control" parent="Menu"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Options"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Options"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -214,13 +300,13 @@ offset_right = 32.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Begin Option" type="Control" parent="VBoxContainer/Options/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="Begin Option" type="Control" parent="Menu/Options/HBoxContainer"]
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Options/HBoxContainer/Begin Option"]
+[node name="PanelContainer" type="PanelContainer" parent="Menu/Options/HBoxContainer/Begin Option"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -230,7 +316,7 @@ offset_right = 32.0
 offset_bottom = 20.0
 grow_horizontal = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options/HBoxContainer/Begin Option/PanelContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Begin Option/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "Begin Game"
@@ -238,13 +324,13 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits Option" type="Control" parent="VBoxContainer/Options/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="Credits Option" type="Control" parent="Menu/Options/HBoxContainer"]
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Options/HBoxContainer/Credits Option"]
+[node name="PanelContainer" type="PanelContainer" parent="Menu/Options/HBoxContainer/Credits Option"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -254,7 +340,7 @@ offset_right = 32.0
 offset_bottom = 20.0
 grow_horizontal = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options/HBoxContainer/Credits Option/PanelContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Credits Option/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "Credits"
@@ -262,13 +348,13 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Exit Option" type="Control" parent="VBoxContainer/Options/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="Exit Option" type="Control" parent="Menu/Options/HBoxContainer"]
+custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Options/HBoxContainer/Exit Option"]
+[node name="PanelContainer" type="PanelContainer" parent="Menu/Options/HBoxContainer/Exit Option"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -278,7 +364,7 @@ offset_right = 32.0
 offset_bottom = 20.0
 grow_horizontal = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options/HBoxContainer/Exit Option/PanelContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Exit Option/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "Exit"
