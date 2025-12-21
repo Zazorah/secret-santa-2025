@@ -1,0 +1,287 @@
+[gd_scene load_steps=27 format=3 uid="uid://b3rlglxkmniwt"]
+
+[ext_resource type="Script" uid="uid://mjv7bsxu2y65" path="res://Menus/Title Screen/TitleScreenController.gd" id="1_lelv7"]
+[ext_resource type="Texture2D" uid="uid://bi14yionmvill" path="res://Menus/Title Screen/Assets/Logo.png" id="1_qiq1w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lelv7"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(0, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6thg"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(1152, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb5gn"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(2304, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03qnj"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(3456, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onvmt"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(4608, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvwk"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(5760, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qert1"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(6912, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lig0e"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(8064, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ej3m"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(9216, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owgig"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(10368, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xbr0"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(11520, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvtb2"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(12672, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfa01"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(13824, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssnek"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(14976, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frtbh"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(16128, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flvph"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(17280, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvee7"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(18432, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u0jn"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(19584, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqbgl"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(20736, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxc7v"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(21888, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_046v5"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(23040, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axpjd"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(24192, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqde6"]
+atlas = ExtResource("1_qiq1w")
+region = Rect2(25344, 0, 1152, 576)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_inut7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lelv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6thg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yb5gn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03qnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onvmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyvwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qert1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lig0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ej3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owgig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xbr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvtb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfa01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssnek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frtbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flvph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvee7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u0jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqbgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxc7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_046v5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axpjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqde6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lelv7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 144)
+layout_mode = 2
+
+[node name="TextureRect" type="AnimatedSprite2D" parent="VBoxContainer/Logo"]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_inut7")
+frame_progress = 0.5984558
+offset = Vector2(0, 288)
+
+[node name="Options" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Options"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Begin Option" type="Control" parent="VBoxContainer/Options/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Options/HBoxContainer/Begin Option"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options/HBoxContainer/Begin Option/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Begin Game"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits Option" type="Control" parent="VBoxContainer/Options/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Options/HBoxContainer/Credits Option"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options/HBoxContainer/Credits Option/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Credits"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit Option" type="Control" parent="VBoxContainer/Options/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Options/HBoxContainer/Exit Option"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 20.0
+grow_horizontal = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Options/HBoxContainer/Exit Option/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "Exit"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
