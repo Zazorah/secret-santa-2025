@@ -300,72 +300,48 @@ offset_right = 32.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Begin Option" type="Control" parent="Menu/Options/HBoxContainer"]
+[node name="Begin Option" type="Button" parent="Menu/Options/HBoxContainer"]
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="Menu/Options/HBoxContainer/Begin Option"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_right = 32.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Begin Option"]
+layout_mode = 0
+offset_right = 64.0
 offset_bottom = 20.0
-grow_horizontal = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Begin Option/PanelContainer"]
-layout_mode = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "Begin Game"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits Option" type="Control" parent="Menu/Options/HBoxContainer"]
+[node name="Credits Option" type="Button" parent="Menu/Options/HBoxContainer"]
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="Menu/Options/HBoxContainer/Credits Option"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_right = 32.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Credits Option"]
+layout_mode = 0
+offset_right = 64.0
 offset_bottom = 20.0
-grow_horizontal = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Credits Option/PanelContainer"]
-layout_mode = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "Credits"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Exit Option" type="Control" parent="Menu/Options/HBoxContainer"]
+[node name="Exit Option" type="Button" parent="Menu/Options/HBoxContainer"]
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="Menu/Options/HBoxContainer/Exit Option"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -32.0
-offset_right = 32.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Exit Option"]
+layout_mode = 0
+offset_right = 64.0
 offset_bottom = 20.0
-grow_horizontal = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Exit Option/PanelContainer"]
-layout_mode = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "Exit"
 fit_content = true

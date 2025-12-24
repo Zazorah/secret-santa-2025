@@ -9,6 +9,9 @@ extends Control
 # Node references 
 @onready var logo = $Menu/Logo
 
+# State
+var inputs_enabled
+
 func _ready() -> void:
 	# Hide both node-types
 	credits_root.modulate.a = 0.0
@@ -26,6 +29,9 @@ func _ready() -> void:
 	await _do_credits_exit()
 	await get_tree().create_timer(0.5).timeout
 	await _do_menu_entrance()
+	
+	_setup_buttons()
+	_enable_controls()
 
 func _do_credits_entrance() -> void:
 	var tween = get_tree().create_tween()
@@ -62,3 +68,9 @@ func _do_menu_exit() -> void:
 	tween.tween_property(menu_root, "modulate:a", 0.0, 1.0)
 	
 	await tween.finished
+
+func _setup_buttons() -> void:
+	pass
+
+func _enable_controls() -> void:
+	pass
