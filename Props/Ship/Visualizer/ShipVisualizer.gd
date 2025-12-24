@@ -24,7 +24,10 @@ const SL_SPRITE_PILOT_LOOKUP := {
 	4: preload("res://Props/Ship/Assets/Ship_S4_Piloted.png")
 }
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if GameManager.state == GameManager.GameState.PAUSED:
+		return
+	
 	rotation_degrees = lerp(rotation_degrees, rot_target, 0.05)
 
 func reset_rotation() -> void:

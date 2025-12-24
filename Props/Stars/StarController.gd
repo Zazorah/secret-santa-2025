@@ -1,5 +1,5 @@
 class_name StarController
-extends RigidBody2D
+extends PhysicsProp
 
 const SPRING_STRENGTH = 50.0
 const DAMPING = 1.0
@@ -12,6 +12,8 @@ var current_state = State.FREE
 var hover_target: Node2D
 
 func _ready() -> void:
+	super._ready()
+	
 	if star_key:
 		var collected = GameManager.star_data.star_is_collected(star_key)
 		if collected:

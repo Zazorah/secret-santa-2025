@@ -16,6 +16,9 @@ func exit() -> void:
 	takeoff_timer = 0.0
 
 func process(delta: float) -> void:
+	if not _will_respond_to_inputs():
+		return
+	
 	# Check if player is holding jump button
 	if Input.is_action_pressed("jump"):
 		takeoff_timer += delta
