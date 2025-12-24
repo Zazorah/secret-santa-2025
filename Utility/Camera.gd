@@ -46,3 +46,7 @@ func _physics_process(delta: float) -> void:
 	var target_position = focus_target.global_position - (camera_size/2.0)
 	
 	global_position = global_position.lerp(target_position, focus_speed * delta)
+
+func snap_to_target() -> void:
+	var camera_size = get_viewport_rect().size / zoom
+	global_position = focus_target.global_position - (camera_size/2.0)

@@ -1,5 +1,5 @@
 class_name Room
-extends Node
+extends Node2D
 
 ## Describes a playable room in the game.
 
@@ -7,7 +7,8 @@ const PLAYER_SCENE := preload("res://Entities/Characters/Player/PlayerCharacter.
 
 func _ready() -> void:
 	# Set self as current room.
-	GameManager.current_room = self
+	if not GameManager.current_room: 
+		GameManager.current_room = self
 	
 	# Spawn player at appropriate tag.
 	var spawn_pos = _get_spawn_position(self)
@@ -18,6 +19,11 @@ func _ready() -> void:
 	var player = PLAYER_SCENE.instantiate() as EntityPlayer
 	player.global_position = spawn_pos
 	add_child(player)
+	
+	# Snap Camera to Player
+	await player.tree_entered
+	if GameManager.camera:
+		GameManager.camera.snap_to_target()
 
 func _get_spawn_position(root: Node) -> Vector2:
 	var result: Vector2

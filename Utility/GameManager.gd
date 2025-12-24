@@ -101,3 +101,15 @@ func set_area(new_area: StringName) -> void:
 	if show_ui:
 		var indicator = AREA_UI.instantiate()
 		add_child(indicator)
+
+func load_room(room: Node2D) -> void:
+	if room is not Room:
+		push_warning("The room attempting to be loaded is not a room. Attempting load anyway.")
+	
+	if current_room:
+		current_room.queue_free()
+	
+	current_room = room as Room
+	get_tree().root.add_child(current_room)
+	
+	GameManager.state = GameManager.GameState.NORMAL

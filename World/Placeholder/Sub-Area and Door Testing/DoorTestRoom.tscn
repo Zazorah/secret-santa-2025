@@ -199,9 +199,25 @@ is_default = true
 
 [node name="DoorA" parent="." instance=ExtResource("8_b80i3")]
 position = Vector2(261, 119)
+room_path = "uid://di1hwf4qkkedg"
 tag = &"door_test_a"
 display_sprite = false
 
 [node name="DoorB" parent="." instance=ExtResource("8_b80i3")]
 position = Vector2(-139, 40)
+room_path = "uid://di1hwf4qkkedg"
+tag = &"door_test_b"
+display_sprite = false
+
+[node name="DoorC" parent="." instance=ExtResource("8_b80i3")]
+position = Vector2(589, 152)
+scale = Vector2(2.14, 1.105)
+room_path = "uid://biuio2yx4o62t"
+tag = &"door_test_d"
+display_sprite = false
+
+[node name="DoorD" parent="." instance=ExtResource("8_b80i3")]
+position = Vector2(821, 88)
+room_path = "uid://di1hwf4qkkedg"
+tag = &"door_test_c"
 display_sprite = false
