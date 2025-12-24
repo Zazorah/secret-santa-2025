@@ -85,9 +85,8 @@ func _process(delta: float) -> void:
 		pass
 	else:
 		# Register pause inputs.
-		# NOTE - Disabled for now. Weird bug spotted.
-		# if GameManager.can_pause and Input.is_action_just_pressed("pause"):
-			#GameManager.pause_game()
+		if GameManager.can_pause and Input.is_action_just_pressed("pause"):
+			GameManager.pause_game()
 		
 		if current_state:
 			current_state.process(delta)
