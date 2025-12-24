@@ -34,6 +34,16 @@ func update_velocity(delta: float):
 	if current_state == State.TALKING:
 		return
 	
+	# Don't respond to any inputs if game is in STANDBY
+	if GameManager.state == GameManager.GameState.STANDBY:
+		current_state = State.IDLE
+		velocity.x = lerp(velocity.x, 0.0, 0.2)
+		return
+	
+	# Pause the game when the input is pressed.
+	if GameManager.can_pause and Input.is_action_just_pressed("pause"):
+		GameManager.pause_game()
+	
 	# Get horizontal input
 	var input_dir = Input.get_axis("move_left", "move_right")
 	

@@ -1,0 +1,98 @@
+[gd_scene load_steps=19 format=3 uid="uid://dfntjew8p0max"]
+
+[ext_resource type="Script" uid="uid://2wltjwcplwhv" path="res://Entities/Characters/NPCs/EntityNPC.gd" id="1_ml6ib"]
+[ext_resource type="Script" uid="uid://c6quvewevudvy" path="res://Utility/Conditionals/NPCConditional.gd" id="2_qib40"]
+[ext_resource type="Script" uid="uid://cnhykcg136yjb" path="res://Utility/Conditionals/NPCConditionalIs.gd" id="3_w3d3w"]
+[ext_resource type="Script" uid="uid://cglu5glbljokj" path="res://Utility/Conditionals/NPCConditionalOr.gd" id="4_x5sj1"]
+[ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="6_qf6yc"]
+[ext_resource type="PackedScene" uid="uid://crsr7p2h1rsrq" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.tscn" id="7_ih7xa"]
+[ext_resource type="Texture2D" uid="uid://bwnfesuf3b44b" path="res://Entities/Characters/NPCs/Assets/NPC_Frog.png" id="8_0bcw4"]
+[ext_resource type="Texture2D" uid="uid://bbetyh7kje434" path="res://Entities/Characters/NPCs/Assets/NPC_Axolotl.png" id="9_p6xf6"]
+[ext_resource type="Script" uid="uid://d3uvftvuiacu4" path="res://Entities/EntityVisualizer.gd" id="10_ssp6c"]
+
+[sub_resource type="Resource" id="Resource_ml6ib"]
+script = ExtResource("3_w3d3w")
+key = &"test_a"
+expected_value = true
+metadata/_custom_type_script = "uid://cnhykcg136yjb"
+
+[sub_resource type="Resource" id="Resource_qib40"]
+script = ExtResource("3_w3d3w")
+key = &"test_b"
+expected_value = 5.0
+metadata/_custom_type_script = "uid://cnhykcg136yjb"
+
+[sub_resource type="Resource" id="Resource_w3d3w"]
+script = ExtResource("4_x5sj1")
+conditions = Array[ExtResource("2_qib40")]([SubResource("Resource_ml6ib"), SubResource("Resource_qib40")])
+metadata/_custom_type_script = "uid://cglu5glbljokj"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd6fu"]
+size = Vector2(60, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6spy"]
+atlas = ExtResource("8_0bcw4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6knan"]
+atlas = ExtResource("9_p6xf6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj1c1"]
+atlas = ExtResource("9_p6xf6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6knan"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6spy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6knan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj1c1")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6knan"]
+size = Vector2(12, 20)
+
+[node name="NPCE" type="CharacterBody2D"]
+script = ExtResource("1_ml6ib")
+cutscene_name = &"Frog"
+cutscene_key = &"frog_test"
+conditions = SubResource("Resource_w3d3w")
+will_wander = false
+metadata/_custom_type_script = "uid://2wltjwcplwhv"
+
+[node name="InteractionZone" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("6_qf6yc")
+metadata/_custom_type_script = "uid://vnufhh7q4sx"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionZone"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_dd6fu")
+
+[node name="InteractionIndicator" parent="InteractionZone" instance=ExtResource("7_ih7xa")]
+
+[node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6knan")
+animation = &"idle"
+offset = Vector2(0, -16)
+script = ExtResource("10_ssp6c")
+metadata/_custom_type_script = "uid://d3uvftvuiacu4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_6knan")

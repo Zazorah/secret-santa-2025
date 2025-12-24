@@ -17,3 +17,6 @@ func physics_process(_delta: float) -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	pass
+
+func _will_respond_to_inputs() -> bool:
+	return GameManager.state == GameManager.GameState.NORMAL

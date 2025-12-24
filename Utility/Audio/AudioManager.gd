@@ -6,7 +6,7 @@ var music_player: AudioStreamPlayer
 var sfx_players: Array[AudioStreamPlayer] = []
 var available_sfx_players: Array[AudioStreamPlayer] = []
 
-var master_volume: float = 1.0 # Default: 1.0
+var master_volume: float = 0.25 # Default: 1.0
 var music_volume: float = 0.7 # Default: 0.7
 var sfx_volume: float = 0.8 # Default: 0.8
 
