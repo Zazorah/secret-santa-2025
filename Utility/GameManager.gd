@@ -39,6 +39,8 @@ var star_data: StarData
 
 # Map Data
 var current_area: StringName
+var spawn_tag: StringName = "door_test_a"
+var current_room: Room
 
 const AREA_UI := preload("res://Utility/Area Overlay/AreaOverlay.tscn")
 
@@ -46,10 +48,6 @@ const AREA_UI := preload("res://Utility/Area Overlay/AreaOverlay.tscn")
 var interaction_queue: Array[Variant]
 
 func _ready() -> void:
-	# TEST - Set debug state flags for NPC conditional testing.
-	flags.test_a = true
-	flags.test_b = 15.0
-	
 	# NOTE - Check if the game has some loadable save here.
 	#        Just loading a new game for now.
 	create_new_game()
@@ -103,3 +101,15 @@ func set_area(new_area: StringName) -> void:
 	if show_ui:
 		var indicator = AREA_UI.instantiate()
 		add_child(indicator)
+
+func load_room(room: Node2D) -> void:
+	if room is not Room:
+		push_warning("The room attempting to be loaded is not a room. Attempting load anyway.")
+	
+	if current_room:
+		current_room.queue_free()
+	
+	current_room = room as Room
+	get_tree().root.add_child(current_room)
+	
+	GameManager.state = GameManager.GameState.NORMAL

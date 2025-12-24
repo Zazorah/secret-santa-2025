@@ -205,15 +205,12 @@ position = Vector2(-840, -402)
 
 [node name="NPCAxolotl" parent="." instance=ExtResource("7_ma7d5")]
 position = Vector2(246, 116)
-will_wander = false
 
 [node name="NPCFrog" parent="." instance=ExtResource("8_jji6d")]
 position = Vector2(-392, -92)
-will_wander = false
 
 [node name="NPCFork" parent="." instance=ExtResource("9_5m7cv")]
 position = Vector2(1262, -157)
-will_wander = false
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("10_ruviw")]
 position = Vector2(-913, -380)
@@ -228,11 +225,9 @@ metadata/_custom_type_script = "uid://c1u3337rkmd6x"
 
 [node name="NPCFrogFetchQuest" parent="." instance=ExtResource("8_jji6d")]
 position = Vector2(1827, -508)
-will_wander = false
 
 [node name="NPCAxolotlTrucker" parent="." instance=ExtResource("7_ma7d5")]
 position = Vector2(545, -13)
 
 [node name="BadDreamBoy" parent="." instance=ExtResource("7_ma7d5")]
 position = Vector2(193, -605)
-will_wander = false
