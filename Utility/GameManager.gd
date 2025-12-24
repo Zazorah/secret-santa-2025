@@ -8,6 +8,14 @@ var player: EntityPlayer
 # Camera
 var camera: Camera
 
+# Platform
+enum Platforms {
+	EXE, # Game is running from an executable program on a computer.
+	WEB  # Game is running in a web browser.
+}
+
+var platform = Platforms.EXE
+
 # State
 enum GameState {
 	NORMAL,  # Entites act and animate as normal.

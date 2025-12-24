@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://vwrvgrug3agx"]
+
+[node name="PauseMenuButton" type="Button"]
+custom_minimum_size = Vector2(144, 24)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -79.5
+offset_right = -271.5
+offset_bottom = -152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 144.0
+offset_bottom = 24.0
+theme_override_font_sizes/normal_font_size = 10
+text = "Resume Game"
+horizontal_alignment = 1
+vertical_alignment = 1

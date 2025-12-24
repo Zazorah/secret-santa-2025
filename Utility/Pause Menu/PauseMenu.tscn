@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://vjjn6lvgt541"]
+[gd_scene load_steps=3 format=3 uid="uid://vjjn6lvgt541"]
 
 [ext_resource type="Script" uid="uid://ckxv0jl22da1s" path="res://Utility/Pause Menu/PauseMenu.gd" id="1_8xkbd"]
+[ext_resource type="PackedScene" uid="uid://vwrvgrug3agx" path="res://Utility/Pause Menu/PauseMenuButton.tscn" id="2_nueio"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_8xkbd")
@@ -22,13 +23,32 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.080783375, 0.08078333, 0.080783345, 0.3764706)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button Container" type="VBoxContainer" parent="Menu/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PauseMenuButton" parent="Menu/VBoxContainer/Button Container" instance=ExtResource("2_nueio")]
+layout_mode = 2
+
+[node name="PauseMenuButton2" parent="Menu/VBoxContainer/Button Container" instance=ExtResource("2_nueio")]
+layout_mode = 2
+
+[node name="PauseMenuButton3" parent="Menu/VBoxContainer/Button Container" instance=ExtResource("2_nueio")]
+layout_mode = 2
