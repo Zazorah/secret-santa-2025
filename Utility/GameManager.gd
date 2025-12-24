@@ -8,6 +8,9 @@ var player: EntityPlayer
 # Camera
 var camera: Camera
 
+# State
+var state: Dictionary # Generic global state object.
+
 # Data
 var ship_data: ShipData
 var star_data: StarData
@@ -21,6 +24,10 @@ const AREA_UI := preload("res://Utility/Area Overlay/AreaOverlay.tscn")
 var interaction_queue: Array[Variant]
 
 func _ready() -> void:
+	# TEST - Set debug state flags for NPC conditional testing.
+	state.test_a = true
+	state.test_b = 15.0
+	
 	# NOTE - Check if the game has some loadable save here.
 	#        Just loading a new game for now.
 	create_new_game()

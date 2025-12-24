@@ -10,6 +10,9 @@ extends Entity
 @export var cutscene_name: StringName
 @export var cutscene_key: StringName
 
+# Conditionals
+@export var conditions: NPCConditional
+
 # State
 enum State {IDLE, WANDERING, TALKING, WATCHING}
 var current_state: State = State.IDLE
@@ -37,6 +40,12 @@ var current_textbox: DialogTextbox
 
 func _ready():
 	super._ready()
+	
+	# Ensure conditions are met. If not, despawn immediately.
+	if conditions:
+		if not conditions.execute():
+			queue_free()
+			return
 	
 	# Set Collision Properties
 	collision_layer = 2
