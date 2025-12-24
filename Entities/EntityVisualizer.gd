@@ -1,10 +1,20 @@
 class_name EntityVisualizer
 extends AnimatedSprite2D
 
-## Node for displaying an NPCs appearance.
+## Node for handling an Entity's appearance.
 
 # Linked Nodes
 var entity: Entity
+
+func _ready() -> void:
+	GameManager.state_changed.connect(_on_game_state_changed)
+
+func _on_game_state_changed(new_state) -> void:
+	match new_state:
+		GameManager.GameState.PAUSED:
+			speed_scale = 0.0
+		_:
+			speed_scale = 1.0
 
 func update_animation(entity_context: Dictionary) -> void:
 	var velocity = entity_context.get("velocity", 0.0)

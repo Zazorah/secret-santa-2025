@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b0gsog6fd8xua"]
+[gd_scene load_steps=19 format=4 uid="uid://b0gsog6fd8xua"]
 
 [ext_resource type="PackedScene" uid="uid://cxa7e1h621ru5" path="res://Entities/Characters/Player/PlayerCharacter.tscn" id="1_c3ubo"]
 [ext_resource type="Script" uid="uid://c1u3337rkmd6x" path="res://Utility/Camera.gd" id="1_chg7e"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://sekigwdfuswx" path="res://Entities/Characters/NPCs/Example Scenes/NPCFork.tscn" id="7_fi5io"]
 [ext_resource type="PackedScene" uid="uid://6otq5m0fjylb" path="res://Props/Ship/Ship.tscn" id="7_xfvp6"]
 [ext_resource type="Script" uid="uid://dag17lve21slw" path="res://Entities/Characters/NPCs/Utility/CutsceneKey.gd" id="8_t0rno"]
+[ext_resource type="PackedScene" uid="uid://2xyvlvxqgbti" path="res://Props/Stars/PropStar.tscn" id="12_0vtxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_07v8v"]
 texture = ExtResource("2_07v8v")
@@ -225,3 +226,6 @@ cutscene_keys = Array[ExtResource("8_t0rno")]([SubResource("Resource_j6e0t")])
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_c3ubo")]
 position = Vector2(67, 150)
+
+[node name="PropStar" parent="." instance=ExtResource("12_0vtxp")]
+position = Vector2(36, -36)

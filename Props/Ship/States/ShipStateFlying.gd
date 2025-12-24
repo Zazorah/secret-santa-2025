@@ -10,6 +10,11 @@ const MAX_SPEED = 500.0
 
 var takeoff_buffer: int
 
+var jump_held: bool
+var beam_pressed: bool
+var beam_released: bool
+var horizontal_input: float
+
 func enter() -> void:
 	takeoff_buffer = TAKEOFF_BUFFER_CAP
 	
@@ -21,13 +26,28 @@ func enter() -> void:
 func exit() -> void:
 	ship.beam.set_active(false)
 
+func process(_delta: float) -> void:
+	if not _will_respond_to_inputs():
+		jump_held = false
+		beam_pressed = false
+		beam_released = false
+		horizontal_input = 0.0
+		return
+	
+	# Check if thrust and/or beam are held
+	jump_held = Input.is_action_pressed("jump")
+	beam_pressed = Input.is_action_just_pressed("beam")
+	beam_released = Input.is_action_just_released("beam")
+	
+	# Get horizontal input access
+	horizontal_input = Input.get_axis("move_left", "move_right")
+
 func physics_process(_delta: float) -> void:
 	# Upward thrust when holding jump
-	if Input.is_action_pressed("jump"):
+	if jump_held:
 		ship.apply_central_force(Vector2.UP * UPWARD_THRUST)
 	
 	# Horizontal movement
-	var horizontal_input = Input.get_axis("move_left", "move_right")
 	if horizontal_input != 0:
 		ship.apply_central_force(Vector2(horizontal_input * HORIZONTAL_SPEED, 0))
 		# Rotate towards horizontal movement
@@ -43,9 +63,9 @@ func physics_process(_delta: float) -> void:
 		return
 	
 	# Beam controls
-	if Input.is_action_just_pressed("beam"):
+	if beam_pressed:
 		ship.beam.set_active(true)
-	elif Input.is_action_just_released("beam"):
+	elif beam_released or (ship.beam.active and not _will_respond_to_inputs()):
 		ship.beam.set_active(false)
 	
 	# Check for ground collision
