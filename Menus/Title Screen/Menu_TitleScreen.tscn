@@ -290,7 +290,7 @@ offset = Vector2(0, 288)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Options"]
+[node name="Button Container" type="HBoxContainer" parent="Menu/Options"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -300,13 +300,13 @@ offset_right = 32.0
 grow_horizontal = 2
 alignment = 1
 
-[node name="Begin Option" type="Button" parent="Menu/Options/HBoxContainer"]
+[node name="Begin Option" type="Button" parent="Menu/Options/Button Container"]
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Begin Option"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/Button Container/Begin Option"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 20.0
@@ -316,13 +316,13 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Credits Option" type="Button" parent="Menu/Options/HBoxContainer"]
+[node name="Credits Option" type="Button" parent="Menu/Options/Button Container"]
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Credits Option"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/Button Container/Credits Option"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 20.0
@@ -332,13 +332,13 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Exit Option" type="Button" parent="Menu/Options/HBoxContainer"]
+[node name="Exit Option" type="Button" parent="Menu/Options/Button Container"]
 custom_minimum_size = Vector2(64, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/HBoxContainer/Exit Option"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu/Options/Button Container/Exit Option"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 20.0
