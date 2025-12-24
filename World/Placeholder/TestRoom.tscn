@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://b0gsog6fd8xua"]
 
 [ext_resource type="Script" uid="uid://c1u3337rkmd6x" path="res://Utility/Camera.gd" id="1_chg7e"]
-[ext_resource type="Script" uid="uid://c70vpdfvgvvn0" path="res://World/Room.gd" id="1_t0rno"]
+[ext_resource type="Script" path="res://World/Room.gd" id="1_t0rno"]
 [ext_resource type="TileSet" uid="uid://vtji68yn4ypp" path="res://World/Tilesets/Placeholder.tres" id="3_8h5r4"]
 [ext_resource type="PackedScene" uid="uid://btdyebtu3dvg4" path="res://Entities/Characters/NPCs/Example Scenes/NPCAxolotl.tscn" id="5_dv4i4"]
 [ext_resource type="PackedScene" uid="uid://c2anmygexkfrd" path="res://Entities/Characters/NPCs/Example Scenes/NPCFrog.tscn" id="6_vhexg"]
