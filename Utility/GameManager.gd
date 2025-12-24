@@ -48,9 +48,7 @@ const AREA_UI := preload("res://Utility/Area Overlay/AreaOverlay.tscn")
 var interaction_queue: Array[Variant]
 
 func _ready() -> void:
-	# NOTE - Check if the game has some loadable save here.
-	#        Just loading a new game for now.
-	create_new_game()
+	create_new_game_save() # Placeholder state.
 
 func _process(_delta: float) -> void:
 	# Action Queue
@@ -63,8 +61,23 @@ func _process(_delta: float) -> void:
 	if action:
 		action.method.call()
 
+func begin_new_game() -> void:
+	create_new_game_save()
+
+	# Create transition
+	const TRANS_SCENE := preload("res://Utility/Transition/Transition.tscn")
+	var trans_inst = TRANS_SCENE.instantiate() as Transition
+	get_tree().root.add_child(trans_inst)
+	
+	await trans_inst.screen_filled
+	
+	# Load starting room
+	const START_ROOM_SCENE := preload("res://World/Placeholder/TestRoom.tscn")
+	var room_inst = START_ROOM_SCENE.instantiate() as Room
+	load_room(room_inst) 
+
 # Set up global state to act as a new save. 
-func create_new_game() -> void:
+func create_new_game_save() -> void:
 	ship_data = ShipData.new()
 	star_data = StarData.new()
 
@@ -100,7 +113,7 @@ func set_area(new_area: StringName) -> void:
 	
 	if show_ui:
 		var indicator = AREA_UI.instantiate()
-		add_child(indicator)
+		get_tree().root.add_child(indicator)
 
 func load_room(room: Node2D) -> void:
 	if room is not Room:
