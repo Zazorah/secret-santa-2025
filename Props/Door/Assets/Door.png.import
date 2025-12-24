@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://suxsx40pj4gd"
-path="res://.godot/imported/DoorPlaceholder.png-5ed118cdbd597be23fb80b1ab845d1f0.ctex"
+uid="uid://dvv7m7fn2lpoe"
+path="res://.godot/imported/Door.png-0a6587d7c8395c1121ce1b2bfc052397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Props/Door/Assets/DoorPlaceholder.png"
-dest_files=["res://.godot/imported/DoorPlaceholder.png-5ed118cdbd597be23fb80b1ab845d1f0.ctex"]
+source_file="res://Props/Door/Assets/Door.png"
+dest_files=["res://.godot/imported/Door.png-0a6587d7c8395c1121ce1b2bfc052397.ctex"]
 
 [params]
 

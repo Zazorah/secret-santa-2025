@@ -5,31 +5,45 @@ extends Node
 
 const PLAYER_SCENE := preload("res://Entities/Characters/Player/PlayerCharacter.tscn")
 
-var player_spawns: Array[PlayerSpawn]
-
 func _ready() -> void:
 	# Set self as current room.
 	GameManager.current_room = self
 	
-	# Gather all information about children.
-	for child in get_children():
-		if child is PlayerSpawn:
-			player_spawns.push_back(child)
-	
 	# Spawn player at appropriate tag.
-	var spawn_pos: Vector2
-	for spawn in player_spawns:
-		if not spawn_pos and spawn.is_default:
-			spawn_pos = spawn.global_position
-		
-		elif spawn.tag == GameManager.spawn_tag:
-			spawn_pos = spawn.global_position
-		
-		spawn.queue_free()
+	var spawn_pos = _get_spawn_position(self)
 	
-	if not spawn_pos:
+	if spawn_pos == Vector2.ZERO:
 		push_warning("Unable to find an appropriate Player spawn..")
 	
 	var player = PLAYER_SCENE.instantiate() as EntityPlayer
 	player.global_position = spawn_pos
 	add_child(player)
+
+func _get_spawn_position(root: Node) -> Vector2:
+	var result: Vector2
+	
+	for child in root.get_children():
+		# Handle PlayerSpawns
+		if child is PlayerSpawn:
+			if not result and child.is_default:
+				result = child.global_position
+			elif child.tag and child.tag == GameManager.spawn_tag:
+				result = child.global_position
+			
+			child.queue_free()
+		
+		# Handle Doors
+		elif child is Door:
+			if child.tag and child.tag == GameManager.spawn_tag:
+				result = child.global_position
+		
+		# Handle Nodes with Children
+		elif child is Node2D and child.get_child_count() > 0:
+			var temp = _get_spawn_position(child)
+			if temp != Vector2.ZERO:
+				result = temp
+	
+	if not result:
+		return Vector2.ZERO
+
+	return result

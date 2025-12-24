@@ -7,14 +7,21 @@ extends Sprite2D
 @onready var interaction_zone: InteractionZone = $InteractionZone
 
 @export var room: PackedScene
-@export var spawn_tag: StringName
+@export var tag: StringName
+
+@export var display_sprite: bool = true
 
 const TRANS_SCENE := preload("res://Utility/Transition/Transition.tscn")
 
 func _ready() -> void:
 	interaction_zone.interacted.connect(_on_open)
 
+	if not display_sprite:
+		modulate.a = 0.0
+
 func _on_open(_body: Node2D) -> void:
+	print("Hello, World!")
+	
 	GameManager.interaction_queue.push_front({
 		"method": func():
 			pass,

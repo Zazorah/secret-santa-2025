@@ -16,11 +16,16 @@ signal interacted(body: Node2D)
 @export var enabled: bool = true
 
 var _bodies_inside: Array[Node2D] = []
-@onready var indicator: InteractionIndicator = $InteractionIndicator
+var indicator: InteractionIndicator
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	
+	# Link with child indicator, if it exists.
+	for child in get_children():
+		if child is InteractionIndicator:
+			indicator = child
 	
 	# Doesn't collide, but should only be looking for the Player.
 	collision_layer = 0
@@ -41,7 +46,8 @@ func _on_body_entered(body: Node2D) -> void:
 		_bodies_inside.append(body)
 		entered.emit(body)
 		
-		indicator.reveal()
+		if indicator:
+			indicator.reveal()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body in _bodies_inside:
@@ -49,7 +55,8 @@ func _on_body_exited(body: Node2D) -> void:
 		exited.emit(body)
 	
 	if _bodies_inside.size() == 0:
-		indicator.disappear()
+		if indicator:
+			indicator.disappear()
 
 func interact(body: Node2D) -> void:
 	if enabled:
