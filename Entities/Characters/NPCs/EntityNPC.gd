@@ -8,17 +8,17 @@ extends Entity
 #        we'll introduce a more elaborate system that picks the key based on
 #        different conditions.
 @export var cutscene_name: StringName
-@export var cutscene_key: StringName
+@export var cutscene_keys: Array[CutsceneKey]
 
 # Conditionals
-@export var conditions: Conditional
+@export var condition: Conditional
 
 # State
 enum State {IDLE, WANDERING, TALKING, WATCHING}
 var current_state: State = State.IDLE
 
 # Wandering
-@export var will_wander: bool = true
+@export var will_wander: bool = false
 @export var wander_radius: float = 100.0
 @export var wander_speed: float = 50.0
 @export var wander_idle_time_min: float = 2.0
@@ -42,8 +42,8 @@ func _ready():
 	super._ready()
 	
 	# Ensure conditions are met. If not, despawn immediately.
-	if conditions:
-		if not conditions.execute():
+	if condition:
+		if not condition.execute():
 			queue_free()
 			return
 	
@@ -52,7 +52,7 @@ func _ready():
 	collision_mask = 1
 	
 	# Set up interactions.
-	if cutscene_key and interaction_zone:
+	if cutscene_keys and interaction_zone:
 		interaction_zone.interacted.connect(func (_node):
 			GameManager.interaction_queue.push_front({
 				"method": func(): _on_interact(null),
@@ -177,12 +177,20 @@ func _is_path_clear(direction: int, distance: float) -> bool:
 	
 	return result.is_empty()
 
-# Interaction Management Methods
-func _setup_interaction_zone() -> void:
-	pass
+func _get_cutscene_key() -> Variant:
+	for key_check in cutscene_keys:
+		if key_check and key_check.check_conditions():
+			return key_check.key
+	
+	return null
 
 func _on_interact(_node: Node2D) -> void:
-	if DialogManager.has_scene(cutscene_key):
+	var _key = _get_cutscene_key()
+	
+	if not _key:
+		return
+	
+	if DialogManager.has_scene(_key):
 		# Alter interacter and NPC state.
 		var prev_state = current_state
 		change_state(State.TALKING)
@@ -193,7 +201,7 @@ func _on_interact(_node: Node2D) -> void:
 			GameManager.player.current_state = EntityPlayer.State.TALKING
 		
 		# Begin dialog sequence.
-		var player = DialogManager.play_dialog(cutscene_key)
+		var player = DialogManager.play_dialog(_key)
 		
 		await player.setup_complete
 		
