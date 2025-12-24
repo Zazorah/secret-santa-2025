@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://biuio2yx4o62t"]
+
+[ext_resource type="Script" uid="uid://b0k4juar5ydud" path="res://World/Room.gd" id="1_4obrm"]
+
+[node name="DoorTestRoom" type="Node2D"]
+script = ExtResource("1_4obrm")
+metadata/_custom_type_script = "uid://b0k4juar5ydud"
