@@ -17,7 +17,14 @@ func _ready() -> void:
 	if visualizer:
 		visualizer.entity = self
 
+func _is_frozen_by_game_state() -> bool:
+	return GameManager.state == GameManager.GameState.PAUSED
+
 func _physics_process(delta: float) -> void:
+	# Cancel if Game is Paused
+	if _is_frozen_by_game_state():
+		return
+	
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y = min(velocity.y + gravity * delta, max_fall_speed)

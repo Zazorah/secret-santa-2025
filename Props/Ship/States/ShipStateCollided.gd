@@ -21,7 +21,11 @@ func exit() -> void:
 	stun_timer = 0.0
 	bounce_direction = Vector2.ZERO
 
-func process(delta: float) -> void:
+func process(_delta: float) -> void:
+	# No control during stun - ship just tumbles
+	pass
+
+func physics_process(delta: float) -> void:
 	stun_timer -= delta
 	
 	if stun_timer <= 0:
@@ -30,10 +34,6 @@ func process(delta: float) -> void:
 			ship.change_state("parked")
 		else:
 			ship.change_state("flying")
-
-func physics_process(_delta: float) -> void:
-	# No control during stun - ship just tumbles
-	pass
 
 # Called from ShipController when collision detected
 func set_bounce_direction(direction: Vector2) -> void:

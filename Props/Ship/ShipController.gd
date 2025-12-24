@@ -1,5 +1,5 @@
 class_name ShipController
-extends RigidBody2D
+extends PhysicsProp
 
 # State
 var piloted := false # Currently being piloted by the player.
@@ -15,6 +15,8 @@ var states := {}
 var health = 1
 
 func _ready() -> void:
+	super._ready()
+	
 	# Set collision properties.
 	collision_layer = 4
 	
@@ -82,6 +84,11 @@ func _process(delta: float) -> void:
 		# Do auto-heal when not piloted
 		pass
 	else:
+		# Register pause inputs.
+		# NOTE - Disabled for now. Weird bug spotted.
+		# if GameManager.can_pause and Input.is_action_just_pressed("pause"):
+			#GameManager.pause_game()
+		
 		if current_state:
 			current_state.process(delta)
 

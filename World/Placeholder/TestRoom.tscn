@@ -225,3 +225,9 @@ cutscene_keys = Array[ExtResource("8_t0rno")]([SubResource("Resource_j6e0t")])
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("1_c3ubo")]
 position = Vector2(67, 150)
+move_speed = null
+jump_velocity = null
+acceleration = null
+friction = null
+gravity = null
+max_fall_speed = null

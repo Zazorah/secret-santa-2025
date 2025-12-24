@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://vjjn6lvgt541"]
+
+[ext_resource type="Script" uid="uid://ckxv0jl22da1s" path="res://Utility/Pause Menu/PauseMenu.gd" id="1_8xkbd"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_8xkbd")
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.080783375, 0.08078333, 0.080783345, 0.3764706)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
