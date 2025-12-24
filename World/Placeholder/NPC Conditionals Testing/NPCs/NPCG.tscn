@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://d0h3jk86x7aoj"]
 
 [ext_resource type="Script" uid="uid://2wltjwcplwhv" path="res://Entities/Characters/NPCs/EntityNPC.gd" id="1_eqryi"]
-[ext_resource type="Script" uid="uid://c6quvewevudvy" path="res://Entities/Characters/NPCs/Utility/Conditionals/NPCConditional.gd" id="2_5m6lg"]
-[ext_resource type="Script" uid="uid://cnhykcg136yjb" path="res://Entities/Characters/NPCs/Utility/Conditionals/NPCConditionalIs.gd" id="3_j8327"]
-[ext_resource type="Script" uid="uid://cglu5glbljokj" path="res://Entities/Characters/NPCs/Utility/Conditionals/NPCConditionalOr.gd" id="4_yx12o"]
+[ext_resource type="Script" uid="uid://c6quvewevudvy" path="res://Utility/Conditionals/NPCConditional.gd" id="2_5m6lg"]
+[ext_resource type="Script" uid="uid://cnhykcg136yjb" path="res://Utility/Conditionals/NPCConditionalIs.gd" id="3_j8327"]
+[ext_resource type="Script" uid="uid://cglu5glbljokj" path="res://Utility/Conditionals/NPCConditionalOr.gd" id="4_yx12o"]
 [ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="5_mdpf7"]
 [ext_resource type="PackedScene" uid="uid://crsr7p2h1rsrq" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.tscn" id="6_cx882"]
 [ext_resource type="Texture2D" uid="uid://bwnfesuf3b44b" path="res://Entities/Characters/NPCs/Assets/NPC_Frog.png" id="7_byj0s"]

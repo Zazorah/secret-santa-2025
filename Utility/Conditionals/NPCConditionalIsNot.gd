@@ -1,7 +1,8 @@
-class_name NPCConditionalIsNot
-extends NPCConditional
+class_name ConditionalIsNot
+extends Conditional
 
-# Returns true if a value of a given key exists in global state.
+# Returns true if the value in global state is not the same as the value requested.
+# Returns false if the value does not exist.
 
 @export var key: StringName
 @export var expected_value: Variant

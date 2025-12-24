@@ -1,5 +1,5 @@
-class_name NPCConditionalIs
-extends NPCConditional
+class_name ConditionalIs
+extends Conditional
 
 # Returns true if the value in global state is the same as the value requested.
 

@@ -11,7 +11,7 @@ extends Entity
 @export var cutscene_key: StringName
 
 # Conditionals
-@export var conditions: NPCConditional
+@export var conditions: Conditional
 
 # State
 enum State {IDLE, WANDERING, TALKING, WATCHING}

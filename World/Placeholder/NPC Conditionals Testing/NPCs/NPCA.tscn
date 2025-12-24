@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cdyequ66tr68q"]
 
 [ext_resource type="Script" uid="uid://2wltjwcplwhv" path="res://Entities/Characters/NPCs/EntityNPC.gd" id="1_n66ed"]
-[ext_resource type="Script" uid="uid://cnhykcg136yjb" path="res://Entities/Characters/NPCs/Utility/Conditionals/NPCConditionalIs.gd" id="2_cuhpt"]
+[ext_resource type="Script" uid="uid://cnhykcg136yjb" path="res://Utility/Conditionals/NPCConditionalIs.gd" id="2_cuhpt"]
 [ext_resource type="Script" uid="uid://vnufhh7q4sx" path="res://Entities/Utility/InteractionZone.gd" id="2_yspyd"]
 [ext_resource type="PackedScene" uid="uid://crsr7p2h1rsrq" path="res://Entities/Utility/Interaction Indicator/InteractionIndicator.tscn" id="3_55st8"]
 [ext_resource type="Texture2D" uid="uid://bwnfesuf3b44b" path="res://Entities/Characters/NPCs/Assets/NPC_Frog.png" id="4_4hvdi"]

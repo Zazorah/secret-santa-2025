@@ -1,4 +1,4 @@
-class_name NPCConditional
+class_name Conditional
 extends Resource
 
 ## Resource used to set up conditional spawns for NPCs.

@@ -1,9 +1,9 @@
-class_name NPCConditionalOr
-extends NPCConditional
+class_name ConditionalOr
+extends Conditional
 
 # Groups Conditionals and executes true if any of them return true.
 
-@export var conditions: Array[NPCConditional] 
+@export var conditions: Array[Conditional] 
 
 func execute() -> bool:
 	for condition in conditions:
