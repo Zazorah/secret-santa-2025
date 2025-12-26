@@ -55,8 +55,6 @@ func _show_choices(choices: Array[DialogChoice]) -> void:
 	
 	# Pass in choices
 	choicebox.set_choices(choices)
-	
-	pass
 
 func _hide_choices() -> void:
 	pass

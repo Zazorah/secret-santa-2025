@@ -9,16 +9,20 @@ var can_advance: bool = false
 var line_index: int = 0
 var active: bool = true
 var is_writing: bool = false
+var bubble_variant := DialogLine.BubbleVariant.DEFAULT 
 
 # Animation
 var is_animating: bool
 var animation_speed: float = 0.75
 
 # Child References
+@onready var backing: AnimatedSprite2D = $Backing
 @onready var text_label: RichTextLabel = %RichTextLabel
 
 func _ready() -> void:
 	_do_entrance()
+	
+	backing.play()
 
 func _do_entrance() -> void:
 	is_animating = true
@@ -44,7 +48,7 @@ func _do_exit() -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.set_trans(Tween.TRANS_BACK)
-	tween.tween_property(self, "position:y", -64.0, animation_speed)
+	tween.tween_property(self, "position:y", -96.0, animation_speed)
 	
 	await tween.finished
 	
@@ -68,8 +72,15 @@ func set_line(new_line: DialogLine) -> void:
 	current_line = new_line
 	text_label.text = current_line.text
 	
+	if new_line.variant != bubble_variant:
+		_update_bubble(new_line.variant)
+	
 	# Reset line for typewriter effect. Negative to give buffer time.
 	line_index = -1
+
+func _update_bubble(variant: DialogLine.BubbleVariant) -> void:
+	backing.sprite_frames = DialogLine.bubble_textures.get(variant)
+	backing.play()
 
 func kill() -> void:
 	await _do_exit()
