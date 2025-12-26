@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://s4w2liv7d0lg"]
 
-[ext_resource type="FontFile" uid="uid://bfuplq32dveng" path="res://Assets/Fonts/ChevyRay - Picory.ttf" id="1_xwoec"]
+[ext_resource type="FontFile" uid="uid://mrnobxb6sr84" path="res://Assets/Fonts/NicoClean-Regular.otf" id="1_xwoec"]
 
 [resource]
-RichTextLabel/colors/default_color = Color(0.09411765, 0.03137255, 0.105882354, 1)
-RichTextLabel/font_sizes/normal_font_size = 12
+RichTextLabel/colors/default_color = Color(1.029, 1.029, 1.029, 1)
+RichTextLabel/font_sizes/normal_font_size = 10
 RichTextLabel/fonts/normal_font = ExtResource("1_xwoec")

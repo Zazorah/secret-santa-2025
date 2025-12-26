@@ -33,6 +33,10 @@ func _ready() -> void:
 	
 	setup_complete.emit()
 	
+	# Move Camera
+	if GameManager.camera:
+		GameManager.camera.offset_target = Camera.speaking_offset
+	
 	# Begin on First Line
 	_show_next_line()
 
@@ -55,8 +59,6 @@ func _show_choices(choices: Array[DialogChoice]) -> void:
 	
 	# Pass in choices
 	choicebox.set_choices(choices)
-	
-	pass
 
 func _hide_choices() -> void:
 	pass
@@ -74,6 +76,9 @@ func _input(event: InputEvent) -> void:
 func _end_dialog() -> void:
 	if textbox:
 		await textbox.kill()
+	
+	if GameManager.camera:
+		GameManager.camera.offset_target = Camera.standard_offset
 	
 	finished.emit()
 	queue_free()

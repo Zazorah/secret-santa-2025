@@ -19,12 +19,17 @@ const standard_zoom_level: float = 1.0
 const vehicle_zoom_level: float = 0.5
 const vehicle_flying_zoom_level: float = 0.33
 
+# Offset
+const standard_offset := Vector2(0.0, -36.0)
+const speaking_offset := Vector2(0.0, -72.0)
+var offset_target := standard_offset
+
 # Debug
 @export var debug: bool = false
 
 func _ready() -> void:
 	GameManager.camera = self
-	offset = Vector2(0.0, -36.0)
+	offset = offset_target
 
 func _input(event: InputEvent) -> void:
 	if not debug:
@@ -46,6 +51,8 @@ func _physics_process(delta: float) -> void:
 	var target_position = focus_target.global_position - (camera_size/2.0)
 	
 	global_position = global_position.lerp(target_position, focus_speed * delta)
+	
+	offset = offset.lerp(offset_target, 0.125)
 
 func snap_to_target() -> void:
 	var camera_size = get_viewport_rect().size / zoom

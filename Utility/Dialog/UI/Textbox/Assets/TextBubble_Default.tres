@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://rnla3vopbddc"]
+
+[ext_resource type="Texture2D" uid="uid://c6yg43o85bi4q" path="res://Utility/Dialog/UI/Textbox/Assets/TextBubble_Default.png" id="1_nxpl7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkmsm"]
+atlas = ExtResource("1_nxpl7")
+region = Rect2(0, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssk25"]
+atlas = ExtResource("1_nxpl7")
+region = Rect2(1152, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3824n"]
+atlas = ExtResource("1_nxpl7")
+region = Rect2(2304, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35trn"]
+atlas = ExtResource("1_nxpl7")
+region = Rect2(3456, 0, 1152, 576)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xtnd"]
+atlas = ExtResource("1_nxpl7")
+region = Rect2(4608, 0, 1152, 576)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkmsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssk25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3824n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35trn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xtnd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

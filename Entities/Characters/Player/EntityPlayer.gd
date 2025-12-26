@@ -32,6 +32,7 @@ func _ready() -> void:
 func update_velocity(delta: float):
 	# Don't respond to any inputs when talking.
 	if current_state == State.TALKING:
+		velocity.x = lerp(velocity.x, 0.0, 0.2)
 		return
 	
 	# Don't respond to any inputs if game is in STANDBY

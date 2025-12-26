@@ -1,0 +1,32 @@
+{
+	"alt_test_a": [
+		{
+			"text": "This room is where we do the secret tests..."
+		},
+		{
+			"text": "My textbox is normal!"
+		}
+	],
+	
+	"alt_test_b": [
+		{
+			"variant": "sad",
+			"text": "This room is where we do the secret tests..."
+		},
+		{
+			"variant": "sad",
+			"text": "My textbox is all sad..."
+		}
+	],
+	
+	"alt_test_c": [
+		{
+			"variant": "evil",
+			"text": "This room is where we do the secret tests..."
+		},
+		{
+			"variant": "evil",
+			"text": "My textbox is for evil fuckers!!!"
+		}
+	],
+}

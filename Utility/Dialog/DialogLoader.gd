@@ -79,6 +79,16 @@ func _process_line(line_data: Variant) -> DialogLine:
 	if line_data.has("choices"):
 		line.choices = _process_choices(line_data.choices)
 	
+	if line_data.has("variant") and line_data.variant is String:
+		var key = line_data.variant.to_lower()
+		match key:
+			"sad":
+				line.variant = DialogLine.BubbleVariant.SAD
+			"evil":
+				line.variant = DialogLine.BubbleVariant.EVIL
+			_:
+				line.variant = DialogLine.BubbleVariant.DEFAULT
+	
 	return line
 
 func _process_choices(choices: Variant) -> Array[DialogChoice]:
