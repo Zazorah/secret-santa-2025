@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://bnwwt6tnuvnyh"]
+[gd_scene load_steps=10 format=4 uid="uid://bnwwt6tnuvnyh"]
 
 [ext_resource type="Script" uid="uid://b0k4juar5ydud" path="res://World/Room.gd" id="1_prbrq"]
 [ext_resource type="TileSet" uid="uid://vtji68yn4ypp" path="res://World/Tilesets/Placeholder.tres" id="2_6nuwg"]
+[ext_resource type="Script" uid="uid://c1u3337rkmd6x" path="res://Utility/Camera.gd" id="2_dee0t"]
 [ext_resource type="PackedScene" uid="uid://dvebmjqyfwilv" path="res://Props/Player Spawn/PlayerSpawn.tscn" id="3_j18w7"]
 [ext_resource type="PackedScene" uid="uid://btdyebtu3dvg4" path="res://Entities/Characters/NPCs/Example Scenes/NPCAxolotl.tscn" id="4_s25t2"]
 [ext_resource type="Script" uid="uid://dag17lve21slw" path="res://Entities/Characters/NPCs/Utility/CutsceneKey.gd" id="4_u17nk"]
@@ -24,6 +25,12 @@ metadata/_custom_type_script = "uid://dag17lve21slw"
 [node name="AltTextboxTesting" type="Node2D"]
 script = ExtResource("1_prbrq")
 metadata/_custom_type_script = "uid://b0k4juar5ydud"
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2(0, -64)
+anchor_mode = 0
+script = ExtResource("2_dee0t")
+metadata/_custom_type_script = "uid://c1u3337rkmd6x"
 
 [node name="BG" type="Node2D" parent="."]
 
