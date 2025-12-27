@@ -49,7 +49,6 @@ size = Vector2(12, 21)
 [node name="NPCAxolotl" type="CharacterBody2D"]
 script = ExtResource("1_5mfrv")
 cutscene_name = &"Axolotl"
-cutscene_key = &"axolotl_test"
 metadata/_custom_type_script = "uid://2wltjwcplwhv"
 
 [node name="InteractionZone" type="Area2D" parent="."]
@@ -65,7 +64,7 @@ shape = SubResource("RectangleShape2D_dw0vs")
 
 [node name="EntityVisualizer" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6knan")
-animation = &"idle"
+animation = &"talk"
 offset = Vector2(0, -15)
 script = ExtResource("2_yfb0c")
 metadata/_custom_type_script = "uid://d3uvftvuiacu4"
