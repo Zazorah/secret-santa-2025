@@ -21,6 +21,10 @@ func update_animation(entity_context: Dictionary) -> void:
 	var grounded = entity_context.get("is_on_floor", true)
 	var was_grounded = entity_context.get("was_on_floor", true)
 
+	# Interrupt standard behaviour if in talking state.
+	if entity is EntityNPC and entity.current_state == EntityNPC.State.TALKING:
+		return
+
 	# Set sprite facing direction.
 	if velocity.x != 0:
 		flip_h = velocity.x > 0

@@ -34,6 +34,7 @@ var wander_tolerance: float = 5.0
 
 # Talking State
 var current_textbox: DialogTextbox
+var is_talking: bool
 
 # Interaction Zone
 @onready var interaction_zone: InteractionZone = $InteractionZone
@@ -77,6 +78,8 @@ func _process(delta: float) -> void:
 			_process_wandering(delta)
 		State.WATCHING:
 			_process_watching(delta)
+		State.TALKING:
+			_process_talking()
 
 func update_velocity(delta: float):
 	if current_state == State.WANDERING:
@@ -137,6 +140,13 @@ func _process_watching(_delta: float) -> void:
 	
 	if not _is_near_player():
 		change_state(State.IDLE)
+
+func _process_talking() -> void:
+	if current_textbox:
+		if current_textbox.is_writing and visualizer.animation != "talk":
+			visualizer.play_animation("talk")
+		elif not current_textbox.is_writing:
+			visualizer.play_animation("idle")
 
 # Path-finding methods for Wandering state
 func _find_valid_wander_target() -> bool:
