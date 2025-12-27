@@ -21,8 +21,8 @@ var current_state: State = State.IDLE
 @export var will_wander: bool = false
 @export var wander_radius: float = 100.0
 @export var wander_speed: float = 50.0
-@export var wander_idle_time_min: float = 2.0
-@export var wander_idle_time_max: float = 5.0
+@export var wander_idle_time_min: float = 5.0
+@export var wander_idle_time_max: float = 12.0
 
 var wander_timer: float
 var wander_target: Vector2
